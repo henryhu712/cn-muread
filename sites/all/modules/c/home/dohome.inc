@@ -578,6 +578,19 @@ function home_content() {
   );
 */
 
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'ding_yue_hao')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->propertyOrderBy('created', 'DESC')
+        ->count()
+        ->addMetaData('account', user_load(1));
+  $number = $query->execute();
+
+  dpm('test1');
+  dpm($number);
+
+
   return theme('template_home', $vars);
 }
 
