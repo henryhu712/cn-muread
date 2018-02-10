@@ -1,6 +1,8 @@
 
         <div class="row items-container">
 
+        订阅号文章数量： <?php print $number_ding_yue_hao; ?>
+
         </div>
 
 
@@ -14,21 +16,6 @@
               </div>
             </a>
           </div>
-        </div>
-
-
-        <!-- Ads -->
-        <div class="row">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Footer on Muread -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6898386841159675"
-     data-ad-slot="2555453101"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
         </div>
 
 

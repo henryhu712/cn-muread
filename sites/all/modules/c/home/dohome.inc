@@ -587,9 +587,8 @@ function home_content() {
         ->addMetaData('account', user_load(1));
   $number = $query->execute();
 
-  dpm('test1');
-  dpm($number);
 
+  $vars['number_ding_yue_hao'] = $number;
 
   return theme('template_home', $vars);
 }
