@@ -15,8 +15,6 @@ function home_menu() {
   $rows['home'] = array(
     'title' => 'Home',
     'page callback' => 'home_content',
-   // 'page callback' => 'home_h',
-    //'page callback' => 'home_content',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
     'file' => 'dohome.inc'
@@ -44,16 +42,6 @@ function home_menu() {
     'type' => MENU_CALLBACK,
     'file' => 'bot2020.inc'
   );
-
-  /*
-  $rows['h'] = array(
-    'title' => 'Home',
-    'page callback' => 'home_h',
-    'access callback' => TRUE,
-    'type' => MENU_CALLBACK,
-    'file' => 'dohome.inc'
-  );
-   */
 
   /*
   $rows['more'] = array(
@@ -119,10 +107,6 @@ function home_theme($existing, $type, $theme, $path) {
      */
     'template_home' => array(
       'template' => 'home',
-      'path' => $thePath,
-    ),
-    'template_h' => array(
-      'template' => 'h',
       'path' => $thePath,
     ),
     'template_home9' => array(

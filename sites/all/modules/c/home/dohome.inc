@@ -66,29 +66,6 @@ function home9() {
 }
 
 /**
- * New Home
- */
-function home_h() {
-
-  global $user, $language;
-
-  $thepath = drupal_get_path("module", "home");
-  //drupal_add_js($thepath . '/js/home.js');
-  //drupal_add_js($thepath . '/js/more.js');
-  drupal_add_css($thepath . '/css/home.css');
-
-  $theItems = home_get_new_nodes();
-
-  $vars = array(
-    'news_url' => url('news', array('language' => $language)),
-    'items' => $theItems,
-  );
-
-  return theme('template_h', $vars);
-}
-
-
-/**
  * Get new nodes and comments.
  */
 function home_get_new_nodes() {
