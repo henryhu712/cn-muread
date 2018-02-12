@@ -1,0 +1,6 @@
+name = Pages
+description = All resource of page.
+package = Obserbot
+core = 7.x
+version = 7.x-1.0
+

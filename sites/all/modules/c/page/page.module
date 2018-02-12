@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function page_menu() {
+
+  $rows = array();
+
+  $rows['c/all'] = array(
+    'title' => t('All'),
+    'page callback' => 'page_c_all',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'dopage.inc'
+  );
+
+  return $rows;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function page_theme($existing, $type, $theme, $path) {
+
+  $thePath = drupal_get_path('module', 'page') . '/templates';
+
+  return array(
+    'template_c_all' => array(
+      'template' => 'c_all',
+      'path' => $thePath,
+    ),
+  );
+}
+
+
