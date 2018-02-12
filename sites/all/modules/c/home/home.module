@@ -20,13 +20,6 @@ function home_menu() {
     'file' => 'dohome.inc'
   );
 
-  $rows['home9'] = array(
-    'title' => t('World News'),
-    'page callback' => 'home9',
-    'access callback' => TRUE,
-    'type' => MENU_CALLBACK,
-    'file' => 'dohome.inc'
-  );
   $rows['more9'] = array(
     'title' => 'Home More',
     'page callback' => 'home_more9',
@@ -107,10 +100,6 @@ function home_theme($existing, $type, $theme, $path) {
      */
     'template_home' => array(
       'template' => 'home',
-      'path' => $thePath,
-    ),
-    'template_home9' => array(
-      'template' => 'home9',
       'path' => $thePath,
     ),
   );

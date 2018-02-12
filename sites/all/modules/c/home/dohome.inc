@@ -38,33 +38,6 @@ function time_ago( $time )
             return strftime( date( 'Y', $time ) == date( 'Y' ) ? TIMEBEFORE_FORMAT : TIMEBEFORE_FORMAT_YEAR, $time );
 }
 
-
-/**
- * Home
- */
-function home9() {
-
-  global $language;
-
-  $thepath = drupal_get_path("module", "home");
-  drupal_add_js($thepath . '/js/home9.js');
-  drupal_add_css($thepath . '/css/home9.css');
-
-  $data = _get_news_items();
-
-  drupal_add_js(array('home9Args' => array(
-      'lang_prefix' => $language->prefix,
-      'last_reddit_id' => $data['last_reddit_id'],
-      'last_created' => $data['last_created'],
-  )), 'setting');
-
-  $vars = array(
-    'news_items' => $data['news_array'],
-  );
-
-  return theme('template_home9', $vars);
-}
-
 /**
  * Get new nodes and comments.
  */
