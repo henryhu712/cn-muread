@@ -29,7 +29,7 @@ function page_c_all() {
     'article_items' => $data['article_array'],
   );
 
-  return theme('template_home9', $vars);
+  return theme('template_c_all', $vars);
 }
 
 /**
@@ -48,10 +48,11 @@ function page_get_articles($last_created = 0) {
   if (isset($result['node'])) {
     $article_nodes = entity_load('node', array_keys($result['node']));
     foreach ($article_nodes as $article) {
+      $created_str = date("Y-m-d", $article->created);
       $data['article_array'][] = array(
-        'title' => $article['title'],
-        'url_origin' => $article['field_url_origin']['und'][0]['safe_value'],
-        'created' => $article['created'],
+        'title' => $article->title,
+        'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
+        'created' => $created_str,
       );
     }
   }
