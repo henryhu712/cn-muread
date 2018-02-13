@@ -32,90 +32,10 @@ function ob_process_html(&$vars) {
  */
 function ob_preprocess_page(&$vars) {
 
-    /*
-  if (isset($vars['node']) && $vars['node']->nid == 52) { //About
-    drupal_add_css(drupal_get_path('theme', 'ob') . '/css/about.css');
-  }
-     */
   $curr_path = current_path();
   global $language;
 
-  if ($curr_path == 'find-subtitles') {
-      $vars['title'] = t('Find videos on Youtube with subtitles in your preferred language');
-  }
-
-  if (isset($vars['node']) && $vars['node']->type == 'newslink') {
-    $vars['theme_hook_suggestions'][] = 'page__newslink';
-
-    if (in_array($language->language, array('pt', 'bn', 'vi'))) {
-      $data = array(
-        '#tag' => 'meta',
-        '#attributes' => array(
-           'name' => 'robots',
-           'content' => 'noindex',
-        ),
-       );
-      drupal_add_html_head($data, 'no_index');
-    }
-  }
-  else if (isset($vars['node']) && $vars['node']->type == 'item') {
-    drupal_add_css(drupal_get_path('theme', 'ob') . '/css/item.css');
-
-    $thepath = drupal_get_path("module", "home");
-    drupal_add_css($thepath . '/css/flag-icon.min.css');
-
-    // No index for auto generate content.
-    if (isset($vars['node']->field_search_index['und']) && $vars['node']->field_search_index['und'][0]['value'] == 'no') {
-      $data = array(
-        '#tag' => 'meta',
-        '#attributes' => array(
-           'name' => 'robots',
-           'content' => 'noindex',
-        ),
-       );
-      drupal_add_html_head($data, 'no_index');
-    }
-    else if (in_array($vars['node']->language, array('es', 'vi', 'fr', 'de', 'hi', 'ar'))) {
-      if ($vars['node']->created < 1499986032) {
-      $data = array(
-        '#tag' => 'meta',
-        '#attributes' => array(
-           'name' => 'robots',
-           'content' => 'noindex',
-        ),
-       );
-      drupal_add_html_head($data, 'no_index');
-    }
-    }
-    /*
-     */
-
-
-    $xmlsitemap = xmlsitemap_link_load('node', $vars['node']->nid);
-    if ($xmlsitemap['status'] == '0') {
-        dpm('no index');
-    }
-    else {
-        dpm('yes');
-    }
-
-  }
-
-  if (isset($vars['node']) && $vars['node']->type == 'video') {
-    $vars['theme_hook_suggestions'][] = 'page__video';
-    drupal_add_css(drupal_get_path('theme', 'ob') . '/css/video_page.css');
-  }
-
-  if (isset($vars['node']) && $vars['node']->type == 'link') {
-      $data = array(
-        '#tag' => 'meta',
-        '#attributes' => array(
-           'name' => 'robots',
-           'content' => 'noindex',
-        ),
-       );
-      drupal_add_html_head($data, 'no_index');
-  }
+  dpm($vars['title']);
 
   $vars['ob_footer'] = _obserbot_footer();
   if (empty($vars['title'])) {
