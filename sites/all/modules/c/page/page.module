@@ -11,9 +11,10 @@ function page_menu() {
 
   $rows = array();
 
-  $rows['c/all'] = array(
+  $rows['c/%'] = array(
     'title' => t('必读 / 全部'),
     'page callback' => 'page_c_all',
+    'page arguments' => array(1),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
     'file' => 'dopage.inc'
