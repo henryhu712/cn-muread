@@ -1,0 +1,46 @@
+
+/*
+.field-name-field-intro .field-label,
+.field-name-field-origin-url .field-label,
+.field-name-field-item-summary .field-label,
+.field-name-field-picture .field-label {
+  display: none;
+}
+*/
+
+.field-name-field-picture {
+  margin-bottom: 12px;
+}
+
+.origin-url {
+  margin-top: 14px;
+}
+
+.container h1 {
+    font-size: 24px;
+}
+
+.main-image img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Home links */
+.origin-url {
+    margin-bottom: 20px;
+}
+
+.muread-link {
+    margin: 7px 0;
+}
+
+.muread-link a {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+/* Item font */
+.field-item p {
+    font-size: 16px;
+}
+
