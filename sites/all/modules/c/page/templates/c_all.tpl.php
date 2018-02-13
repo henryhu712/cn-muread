@@ -1,7 +1,7 @@
 <div class="row home-content">
   <div class="col-xs-12 col-sm-8">
     <div class="main-content-wrapper">
-    <?php foreach ($news_items as $key => $item): ?>
+    <?php foreach ($article_items as $key => $item): ?>
       <div class="news-item-wrap<?php print $key % 2 === 0 ? " news-odd-row" : ""; ?>">
         <div class="news-title">
           <a href="<?php print $item['url_origin']; ?>"><?php print $item['title']; ?></a>

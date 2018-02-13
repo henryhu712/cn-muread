@@ -23,12 +23,11 @@ function page_c_all() {
       'last_reddit_id' => $data['last_reddit_id'],
       'last_created' => $data['last_created'],
   )), 'setting');
+   */
 
   $vars = array(
-    'news_items' => $data['news_array'],
+    'article_items' => $data['article_array'],
   );
-   */
-  $vars = array();
 
   return theme('template_home9', $vars);
 }
@@ -49,14 +48,11 @@ function page_get_articles($last_created = 0) {
   if (isset($result['node'])) {
     $article_nodes = entity_load('node', array_keys($result['node']));
     foreach ($article_nodes as $article) {
-      dpm($article);
-      /*
       $data['article_array'][] = array(
         'title' => $article['title'],
-        'url_origin' => $row['url_origin'],
-        'created' => $created_str,
+        'url_origin' => $article['field_url_origin']['und'][0]['safe_value'],
+        'created' => $article['created'],
       );
-       */
     }
   }
 
