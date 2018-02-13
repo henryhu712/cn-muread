@@ -35,13 +35,7 @@ function ob_preprocess_page(&$vars) {
   $curr_path = current_path();
   global $language;
 
-  dpm($vars['title']);
-
   $vars['ob_footer'] = _obserbot_footer();
-  if (empty($vars['title'])) {
-    $vars['title'] = t('World news');
-  }
-  $vars['site_name'] = t('Muread');
 }
 
 
