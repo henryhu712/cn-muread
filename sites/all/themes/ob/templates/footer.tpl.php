@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-4 text-center">
           <div class="copyright">
-            <span>&copy; 2017 Obserbot LLC</span>
+            <span>&copy; 2018 Obserbot LLC</span>
           </div>
         </div>
       </div>
