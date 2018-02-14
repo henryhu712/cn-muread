@@ -30,6 +30,10 @@
 
       $('#muread-articles').dragend();
 
+      $('.tt2').on('click', function() {
+        $('#muread-articles').dragend({scrollToPage:2});
+      });
+
       /*
       var last_reddit_id = settings.home9Args.last_reddit_id;
       var lang_prefix = settings.home9Args.lang_prefix;

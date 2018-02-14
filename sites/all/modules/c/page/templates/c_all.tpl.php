@@ -12,6 +12,7 @@
         <div class="news-footer">
           <?php print $item['created']; ?>
         </div>
+        <div class="tt2">go to detail</div>
       </div>
     <?php endforeach; ?>
     </div>
