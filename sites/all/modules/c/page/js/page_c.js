@@ -1,5 +1,6 @@
 (function($) {
 
+  /*
   var more_status = 'idle';
   var last_created = 0;
 
@@ -21,16 +22,22 @@
       $('#item-more9').hide();
     }
   }
+  */
 
 
-  Drupal.behaviors.muread_home9 = {
+  Drupal.behaviors.muread_articles = {
     attach: function(context, settings) {
 
+      $('#muread-articles').dragend();
+
+      /*
       var last_reddit_id = settings.home9Args.last_reddit_id;
       var lang_prefix = settings.home9Args.lang_prefix;
       last_created = settings.home9Args.last_created;
+      */
 
       // Click More
+      /*
       $('#item-more9').on('click', function(e) {
 
         if ($('#more-spinner').hasClass('hidden') && last_created > 10000) {
@@ -44,18 +51,13 @@
 
             last_created = result.last_created;
 
-            /*
-
-            if (result.length < 8) {
-                $('.more-bar').parent().addClass('hidden');
-            }
-            */
           }, 'json');
 
           $('#more-spinner').removeClass('hidden');
           more_status = 'sending';
         }
       });
+      */
 
 
       /*

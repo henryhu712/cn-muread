@@ -13,7 +13,7 @@ function page_menu() {
 
   $rows['c/%'] = array(
     'title' => t('Articles'),
-    'page callback' => 'page_c_all',
+    'page callback' => 'page_c',
     'page arguments' => array(1),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
@@ -28,17 +28,16 @@ function page_menu() {
  */
 function page_preprocess_page(&$vars) {
 
-  $arg0 = trim(arg(0));
-  $arg1 = trim(arg(1));
+  $arg0 = strtolower(trim(arg(0)));
+  $arg1 = strtolower(trim(arg(1)));
 
-  if ($arg0 === 'c' && strcasecmp($arg1, 'all') == 0) {
-    $termName = '全部';
-  }
-  else {
+  if ($arg0 === 'c') { // https://cn.muread.com/c/worldnews
     $termName = 'None';
+    if ($arg1 === 'all') {
+      $termName = '全部';
+    }
+    $vars['term_name'] = $termName;
   }
-
-  $vars['term_name'] = $termName;
 }
 
 /**

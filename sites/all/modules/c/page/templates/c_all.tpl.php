@@ -1,3 +1,6 @@
+<div id="muread-articles">
+  <div class="dragend-page">
+
 <div class="row home-content">
   <div class="col-xs-12 col-sm-8">
     <div class="main-content-wrapper">
@@ -24,6 +27,12 @@
         </span>
       </div>
     </div>
+  </div>
+</div>
+
+  </div>
+  <div class="dragend-page">
+<p>test</p>
   </div>
 </div>
 

@@ -7,13 +7,14 @@
 /**
  * Page c/all
  */
-function page_c_all($term = '') {
+function page_c($term = '') {
 
   global $language;
 
   $page_path = drupal_get_path("module", "page");
-  drupal_add_js($page_path . '/js/page_c_all.js');
-  drupal_add_css($page_path . '/css/page_c_all.css');
+  drupal_add_js($page_path . '/js/dragend.min.js');
+  drupal_add_js($page_path . '/js/page_c.js');
+  //drupal_add_css($page_path . '/css/page_c_all.css');
 
   $data = page_get_articles();
 
