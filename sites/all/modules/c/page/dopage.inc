@@ -56,7 +56,7 @@ function page_get_articles($last_created = 0) {
 
       $data['article_array'][] = array(
         'title' => $article->title,
-	      'image' => $image,
+	      'image' => $image_field,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
         'created' => $created_str,
       );
