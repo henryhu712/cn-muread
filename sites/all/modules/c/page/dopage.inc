@@ -8,7 +8,6 @@
  * Page c/all
  */
 function page_c_all($term = '') {
-  dpm($term);
 
   global $language;
 
