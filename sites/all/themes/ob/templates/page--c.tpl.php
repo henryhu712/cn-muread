@@ -65,4 +65,4 @@
   </div>
 </div>
 
-<?php print $ob_footer; ?>
+<?php //print $ob_footer; ?>
