@@ -33,7 +33,7 @@
   </div>
 </header>
 
-<div class="main-container <?php print $container_class; ?>">
+<div class="muread-content-wrap main-container <?php print $container_class; ?>">
 
   <header role="banner" id="page-header">
     <?php print render($page['header']); ?>
