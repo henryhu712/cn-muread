@@ -1,3 +1,7 @@
 .muread-content-wrap {
   margin-top: 76px;
 }
+
+.field-name-field-image .field-label {
+  display: none;
+}
