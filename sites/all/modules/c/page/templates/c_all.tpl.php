@@ -6,6 +6,7 @@
     <div class="main-content-wrapper">
     <?php foreach ($article_items as $key => $item): ?>
       <div class="news-item-wrap<?php print $key % 2 === 0 ? " news-odd-row" : ""; ?>">
+<?php print $item['image']; ?>
         <div class="news-title">
           <a href="<?php print $item['url_origin']; ?>"><?php print $item['title']; ?></a>
         </div>
