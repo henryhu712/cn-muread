@@ -12,7 +12,7 @@ function page_menu() {
   $rows = array();
 
   $rows['c/%'] = array(
-    'title' => t('必读 / 全部'),
+    'title' => t('Articles'),
     'page callback' => 'page_c_all',
     'page arguments' => array(1),
     'access callback' => TRUE,
