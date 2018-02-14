@@ -51,11 +51,12 @@ function page_get_articles($last_created = 0) {
     foreach ($article_nodes as $article) {
       $created_str = date("Y-m-d", $article->created);
       $uri = $article->field_image['und'][0]['uri'];
-      $image = render(field_view_field('node', $article, 'field_image', array('settings' => array('image_style' => 'thumbnail'))));
+      $image_field = field_view_field('node', $article, 'field_image',
+        array('settings' => array('image_style' => 'thumbnail')));
 
       $data['article_array'][] = array(
         'title' => $article->title,
-	'image' => $image,
+	      'image' => $image,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
         'created' => $created_str,
       );
