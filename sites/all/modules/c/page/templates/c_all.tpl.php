@@ -17,6 +17,7 @@
     <?php endforeach; ?>
     </div>
 
+<!--
     <div id="item-more9">
       <div class="btn-lg text-center">
         <span class="spinner-wrap">
@@ -28,6 +29,7 @@
         </span>
       </div>
     </div>
+-->
   </div>
 </div>
 
