@@ -28,10 +28,17 @@ function page_menu() {
  */
 function page_preprocess_page(&$vars) {
 
-  //$thePath = drupal_get_path('module', 'page') . '/templates';
+  $arg0 = trim(arg(0));
+  $arg1 = trim(arg(1));
 
-  $arg1 = arg(1);
-  $vars['term_name'] = $arg1;
+  if ($arg0 === 'c' && strcasecmp($arg1, 'all') == 0) {
+    $termName = '全部';
+  }
+  else {
+    $termName = 'None';
+  }
+
+  $vars['term_name'] = $termName;
 }
 
 /**
