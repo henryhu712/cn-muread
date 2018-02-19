@@ -60,6 +60,7 @@ function home_create_ding_yue_hao($page, $url) {
   preg_match('/var msg_title = \"([^\"]*)\"/', $page, $m_title, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_desc = \"([^\"]*)\"/', $page, $m_desc, PREG_OFFSET_CAPTURE);
   preg_match('/var publish_time = \"([^\"]*)\"/', $page, $m_time, PREG_OFFSET_CAPTURE);
+  preg_match('/var nickname = \"([^\"]*)\"/', $page, $m_nickname, PREG_OFFSET_CAPTURE);
 
   $node = new stdClass();
 
@@ -74,7 +75,7 @@ function home_create_ding_yue_hao($page, $url) {
 
   if ($file_url = $m_url[1][0]) {
     $file_tmp = file_get_contents($file_url);
-    $file_name = 'abc.jpg';
+    $file_name = random_str(8) . '.jpg';
     $file_tmp = file_save_data($file_tmp, 'public://gzh/' . $file_name, FILE_EXISTS_RENAME);
     $node->field_image[LANGUAGE_NONE][] = array(
           'fid' => $file_tmp->fid,
@@ -91,7 +92,40 @@ function home_create_ding_yue_hao($page, $url) {
     $node->field_published_date['und'][]['value'] = strtotime($date);
   }
 
+  if ($author = $m_nickname[1][0]) {
+    $node->field_author[LANGUAGE_NONE][]['value'] = $author;
+  }
+
+  if ($desc = $m_desc[1][0]) {
+    $node->field_desc[LANGUAGE_NONE][]['value'] = $desc;
+  }
+
   $node = node_submit($node);
   node_save($node);
-
 }
+
+/**
+ * Generate a random string, using a cryptographically secure 
+ * pseudorandom number generator (random_int)
+ *
+ * For PHP 7, random_int is a PHP core function
+ * For PHP 5.x, depends on https://github.com/paragonie/random_compat
+ *
+ * @param int $length      How many characters do we want?
+ * @param string $keyspace A string of all possible characters
+ *                         to select from
+ * @return string
+ *
+ * https://stackoverflow.com/a/31107425/3054511
+ */
+function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+{
+  $str = '';
+  $max = mb_strlen($keyspace, '8bit') - 1;
+  for ($i = 0; $i < $length; ++$i) {
+    $str .= $keyspace[random_int(0, $max)];
+  }
+  return $str;
+}
+
+
