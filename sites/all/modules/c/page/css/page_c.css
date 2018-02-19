@@ -1,11 +1,16 @@
 .muread-content-wrap {
   margin-top: 76px;
 }
-
 .field-name-field-image .field-label {
   display: none;
 }
-
 .navbar-header .navbar-brand {
   padding: 15px 0px 15px 15px;
+}
+.main-content-wrapper > .row {
+  margin-bottom: 15px;
+}
+.main-content-wrapper > .row .field-name-field-image img {
+  border-radius: 5px;
+  margin: 0 auto;
 }
