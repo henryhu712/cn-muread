@@ -12,6 +12,9 @@
                 <div class="news-title">
                   <a href="<?php print $item['url_origin']; ?>"><?php print $item['title']; ?></a>
                 </div>
+                <div class="news-author">
+                  <?php print $item['author']; ?>
+                </div>
                 <div class="news-footer">
                   <?php print $item['created']; ?>
                 </div>

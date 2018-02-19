@@ -58,11 +58,17 @@ function page_get_articles($last_created = 0) {
         $published = date('Y-m-d', $article->field_published_date['und'][0]['value']);
       }
 
+      $author = '';
+      if (isset($article->field_author['und'])) {
+        $author = $article->field_author['und'][0]['value'];
+      }
+
       $data['article_array'][] = array(
         'title' => $article->title,
         'image' => $image_field,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
         'created' => $published,
+        'author' => $author,
       );
     }
   }
