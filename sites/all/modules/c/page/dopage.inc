@@ -83,3 +83,74 @@ function page_get_articles($last_created = 0) {
 }
 
 
+define ("TOKEN", "570fe89ef6");
+
+class wechatCallbackapiTest {
+
+  public function valid() {
+
+    $echoStr = $_GET["echostr"];
+
+    //valid signature , option
+    if($this->checkSignature()){
+      echo $echoStr;
+      exit;
+    }
+  }
+
+  public function responseMsg($postObj, $fromUsername, $toUsername, $keyword) {
+    $time = time();
+    $textTpl = "<xml>
+                                                        <ToUserName><![CDATA[%s]]></ToUserName>
+                                                        <FromUserName><![CDATA[%s]]></FromUserName>
+                                                        <CreateTime>%s</CreateTime>
+                                                        <MsgType><![CDATA[%s]]></MsgType>
+                                                        <Content><![CDATA[%s]]></Content>
+                                                        <FuncFlag>0</FuncFlag>
+                                                        </xml>";             
+    if(!empty( $keyword ))
+                {
+                        $msgType = "text";
+                        $contentStr = $keyword;
+                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                        echo $resultStr;
+                }else{
+                        echo "Input something...";
+                }
+
+  }
+                
+        private function checkSignature()
+        {
+        // you must define TOKEN by yourself
+        if (!defined("TOKEN")) {
+            throw new Exception('TOKEN is not defined!');
+        }
+        
+        $signature = $_GET["signature"];
+        $timestamp = $_GET["timestamp"];
+        $nonce = $_GET["nonce"];
+                        
+                $token = TOKEN;
+                $tmpArr = array($token, $timestamp, $nonce);
+        // use SORT_STRING rule
+                sort($tmpArr, SORT_STRING);
+                $tmpStr = implode( $tmpArr );
+                $tmpStr = sha1( $tmpStr );
+                
+                if( $tmpStr == $signature ){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
+}
+
+/**
+ * Wechat port.
+ */
+function page_wechat_port() {
+  $wechatObj = new wechatCallbackapiTest();
+  $wechatObj->valid();
+  drupal_exit();
+}
