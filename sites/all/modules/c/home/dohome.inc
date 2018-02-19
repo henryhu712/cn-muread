@@ -63,16 +63,28 @@ function home_create_ding_yue_hao($page, $url) {
   $node = new stdClass();
 
   $node->title = $m_title[1][0];
+  $node->type = 'ding_yue_hao';
+  node_object_prepare($node);
+
+  $node->language = 'en';
   $node->uid = 1;
   $node->status = 1;
-  $node->type = 'ding_yue_hao';
-  $node->language = 'und';
-  $node->field_url_origin = array('und' => array(0 => array('value' => $url)));
+  $node->field_url_origin[LANGUAGE_NONE][]['value'] = $url;
 
   if ($file_url = $m_url[1][0]) {
     $file_tmp = file_get_contents($file_url);
     $file_name = 'abc.jpg';
     $file_tmp = file_save_data($file_tmp, 'public://gzh/' . $file_name, FILE_EXISTS_RENAME);
+    $node->field_image[LANGUAGE_NONE][] = array(
+          'fid' => $file_tmp->fid,
+          'filename' => $file_tmp->filename,
+          'filemime' => $file_tmp->filemime,
+          'uid' => 1,
+          'uri' => $file_tmp->uri,
+          'status' => 1,
+          'display' => 1,
+    );
+    /*
     $node->field_image = array(
       'und' => array(
         0 => array(
@@ -86,8 +98,10 @@ function home_create_ding_yue_hao($page, $url) {
         )
       )
     );
+     */
   }
 
+  $node = node_submit($node);
   node_save($node);
 
 }
