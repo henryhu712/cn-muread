@@ -24,6 +24,24 @@ function page_menu() {
 }
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function page_preprocess_html(&$vars) {
+
+  $arg0 = strtolower(trim(arg(0)));
+  $arg1 = strtolower(trim(arg(1)));
+
+  if ($arg0 === 'c') { // https://cn.muread.com/c/worldnews
+    $termName = 'None';
+    if ($arg1 === 'all') {
+      $termName = '全部文章';
+    }
+
+    $vars['head_title'] = $termName;
+  }
+}
+
+/**
  * Implements hook_preprocess_page().
  */
 function page_preprocess_page(&$vars) {
@@ -34,11 +52,10 @@ function page_preprocess_page(&$vars) {
   if ($arg0 === 'c') { // https://cn.muread.com/c/worldnews
     $termName = 'None';
     if ($arg1 === 'all') {
-      $termName = '全部';
+      $termName = '全部文章';
     }
 
     $vars['term_name'] = $termName;
-    drupal_set_title($termName);
   }
 }
 
