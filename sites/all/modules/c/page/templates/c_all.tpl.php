@@ -14,7 +14,7 @@
                 </div>
 
                 <?php if (!empty($item['desc'])): ?>
-                <div class="news-desc">
+                <div class="news-desc hidden">
                   <span class="desc"><?php print $item['desc']; ?></span>
                 </div>
                 <?php endif; ?>
