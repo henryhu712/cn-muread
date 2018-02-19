@@ -168,6 +168,11 @@ function page_wechat_port() {
     $toUsername = $postObj->ToUserName;
 
     $answer = "我看不懂图片";
+
+        $wechatObj = new wechatCallbackapiTest();
+        $wechatObj->responseMsg($postObj, $fromUsername, $toUsername, $answer);
+  drupal_exit();
+
     $flag1 = 0;
     if ($postObj->MsgType == 'text' || $postObj->MsgType == 'voice') {
       if ($postObj->MsgType == 'text') {
