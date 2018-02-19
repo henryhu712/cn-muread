@@ -36,7 +36,9 @@ function page_preprocess_page(&$vars) {
     if ($arg1 === 'all') {
       $termName = '全部';
     }
+
     $vars['term_name'] = $termName;
+    drupal_set_title($termName);
   }
 }
 
