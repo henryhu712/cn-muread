@@ -150,7 +150,50 @@ class wechatCallbackapiTest {
  * Wechat port.
  */
 function page_wechat_port() {
+  /* Validate port
   $wechatObj = new wechatCallbackapiTest();
   $wechatObj->valid();
+  drupal_exit();
+   */
+
+  $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+
+  if (!empty($postStr)){
+    /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+       the best way is to check the validity of xml by yourself */
+    libxml_disable_entity_loader(true);
+    $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+    //watchdog('77Mrbot', '<pre>' . print_r($postObj, true) . '</pre>');
+    $fromUsername = $postObj->FromUserName;
+    $toUsername = $postObj->ToUserName;
+
+    $answer = "我看不懂图片";
+    $flag1 = 0;
+    if ($postObj->MsgType == 'text' || $postObj->MsgType == 'voice') {
+      if ($postObj->MsgType == 'text') {
+        $keyword = $postObj->Content;
+      }
+      else {
+        if (isset($postObj->Recognition)) {
+          $keyword = empty($postObj->Recognition) ? '' : (string)$postObj->Recognition;
+        }
+      }
+      $keyword = trim($keyword);
+      $val23 = (int)$keyword;
+
+
+        $answer = "正在处理页面...";
+        $wechatObj = new wechatCallbackapiTest();
+        $wechatObj->responseMsg($postObj, $fromUsername, $toUsername, $answer);
+
+    }
+    elseif ($postObj->MsgType == 'event') {
+      if ($postObj->Event == 'subscribe') {
+        //list($ouid, $bid) = chatbots_log_conversation($fromUsername, $toUsername, 'beginning', '');
+        $flag1 = 1;
+      }
+    }
+  }
+
   drupal_exit();
 }
