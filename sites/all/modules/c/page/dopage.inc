@@ -156,7 +156,8 @@ function page_wechat_port() {
   drupal_exit();
    */
 
-  $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+  //$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+  $postStr = file_get_contents("php://input");
 
   if (!empty($postStr)){
     /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
@@ -167,7 +168,7 @@ function page_wechat_port() {
     $fromUsername = $postObj->FromUserName;
     $toUsername = $postObj->ToUserName;
 
-    $answer = "我看不懂图片";
+    $answer = "查看 https://cn.muread.com/c/all";
 
         $wechatObj = new wechatCallbackapiTest();
         $wechatObj->responseMsg($postObj, $fromUsername, $toUsername, $answer);
