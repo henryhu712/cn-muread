@@ -28,11 +28,7 @@
   Drupal.behaviors.muread_articles = {
     attach: function(context, settings) {
 
-      $('#muread-articles').dragend();
-
-      $('.tt2').on('click', function() {
-        $('#muread-articles').dragend({scrollToPage:2});
-      });
+      //$('#muread-articles').dragend();
 
       /*
       var last_reddit_id = settings.home9Args.last_reddit_id;

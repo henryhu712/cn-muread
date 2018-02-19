@@ -1,5 +1,4 @@
 <div id="muread-articles">
-  <div class="dragend-page">
 
     <div class="row home-content">
       <div class="col-xs-12 col-sm-8">
@@ -16,9 +15,6 @@
                 <div class="news-footer">
                   <?php print $item['created']; ?>
                 </div>
-<!--
-                <div class="tt2">go to detail</div>
--->
               </div>
             </div>
           <?php endforeach; ?>
@@ -40,10 +36,6 @@
       </div>
     </div>
 
-  </div>
-  <div class="dragend-page">
-<p>test</p>
-  </div>
 </div>
 
 

@@ -12,8 +12,8 @@ function page_c($term = '') {
   global $language;
 
   $page_path = drupal_get_path("module", "page");
-  drupal_add_js($page_path . '/js/dragend.min.js');
-  drupal_add_js($page_path . '/js/page_c.js');
+  //drupal_add_js($page_path . '/js/dragend.min.js');
+  //drupal_add_js($page_path . '/js/page_c.js');
   drupal_add_css($page_path . '/css/page_c.css');
 
   $data = page_get_articles();
@@ -56,7 +56,7 @@ function page_get_articles($last_created = 0) {
 
       $data['article_array'][] = array(
         'title' => $article->title,
-	      'image' => $image_field,
+        'image' => $image_field,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
         'created' => $created_str,
       );
