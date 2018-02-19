@@ -98,7 +98,6 @@ function home_submit_5364(&$form, &$form_state) {
     home_create_ding_yue_hao($page, $url);
   }
   //dpm($page);
-  dpm($matches[1][0]);
 }
 
 
