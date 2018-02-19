@@ -34,7 +34,7 @@ function page_preprocess_html(&$vars) {
   if ($arg0 === 'c') { // https://cn.muread.com/c/worldnews
     $termName = 'None';
     if ($arg1 === 'all') {
-      $termName = '全部文章';
+      $termName = '全部文章 | 必读';
     }
 
     $vars['head_title'] = $termName;
