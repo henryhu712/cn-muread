@@ -77,6 +77,7 @@ function home_menu() {
 
 /**
  * Implements hook_form_alter().
+ * https://www.drupal.org/node/1291574
  */
 function home_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'webform_client_form_5364') { // Paste URL
@@ -91,8 +92,10 @@ function home_form_alter(&$form, &$form_state, $form_id) {
  * Submit Paste URl form.
  */
 function home_submit_5364(&$form, &$form_state) {
-  $form_state['input']['submitted']['url'];
-  dpm('in submit');
+  $url = $form_state['input']['submitted']['url'];
+  $page = file_get_contents($url);
+  preg_match('/var msg_cdn_url = \"([^\"]*)\"/', $page, $matches, PREG_OFFSET_CAPTURE);
+  dpm($matches);
 }
 
 /**
