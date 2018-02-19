@@ -59,6 +59,7 @@ function home_create_ding_yue_hao($page, $url) {
   preg_match('/var msg_cdn_url = \"([^\"]*)\"/', $page, $m_url, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_title = \"([^\"]*)\"/', $page, $m_title, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_desc = \"([^\"]*)\"/', $page, $m_desc, PREG_OFFSET_CAPTURE);
+  preg_match('/var publish_time = \"([^\"]*)\"/', $page, $m_time, PREG_OFFSET_CAPTURE);
 
   $node = new stdClass();
 
@@ -84,21 +85,10 @@ function home_create_ding_yue_hao($page, $url) {
           'status' => 1,
           'display' => 1,
     );
-    /*
-    $node->field_image = array(
-      'und' => array(
-        0 => array(
-          'fid' => $file_tmp->fid,
-          'filename' => $file_tmp->filename,
-          'filemime' => $file_tmp->filemime,
-          'uid' => 1,
-          'uri' => $file_tmp->uri,
-          'status' => 1,
-          'display' => 1,
-        )
-      )
-    );
-     */
+  }
+
+  if ($date = $m_time[1][0]) {
+    $node->field_published_date['und'][]['value'] = strtotime($date);
   }
 
   $node = node_submit($node);

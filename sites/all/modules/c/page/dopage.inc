@@ -49,16 +49,20 @@ function page_get_articles($last_created = 0) {
   if (isset($result['node'])) {
     $article_nodes = entity_load('node', array_keys($result['node']));
     foreach ($article_nodes as $article) {
-      $created_str = date("Y-m-d", $article->created);
       $uri = $article->field_image['und'][0]['uri'];
       $image_field = field_view_field('node', $article, 'field_image',
         array('settings' => array('image_style' => '100-100')));
+
+      $published = '';
+      if (isset($article->field_published_date['und'])) {
+        $published = date('Y-m-d', $article->field_published_date['und'][0]['value']);
+      }
 
       $data['article_array'][] = array(
         'title' => $article->title,
         'image' => $image_field,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
-        'created' => $created_str,
+        'created' => $published,
       );
     }
   }
