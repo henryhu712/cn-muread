@@ -3,7 +3,8 @@
     <div class="navbar-header">
       <?php if (!empty($site_name)): ?>
         <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
-        <span class="category-name"> / <?php print $term_name; ?></span>
+        <span class="navbar-brand"> / </span>
+        <span class="category-name navbar-brand"><?php print $term_name; ?></span>
       <?php endif; ?>
 
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
