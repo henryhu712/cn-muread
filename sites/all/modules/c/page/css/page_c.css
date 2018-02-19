@@ -5,3 +5,7 @@
 .field-name-field-image .field-label {
   display: none;
 }
+
+.navbar-header .navbar-brand {
+  padding: 15px 10px 15px 15px;
+}
