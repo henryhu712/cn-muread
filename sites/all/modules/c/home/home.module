@@ -117,7 +117,7 @@ function home_create_ding_yue_hao($page) {
   $node->type = 'ding_yue_hao';
   $node->language = 'und';
 
-  if ($file_url = $m_url[1][0])) {
+  if ($file_url = $m_url[1][0]) {
     $file_tmp = file_get_contents($file_url);
     $file_name = 'abc.jpg';
     $file_tmp = file_save_data($file_tmp, 'public://gzh/' . $file_name, FILE_EXISTS_RENAME);
