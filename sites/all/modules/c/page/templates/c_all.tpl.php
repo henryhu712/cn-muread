@@ -12,10 +12,20 @@
                 <div class="news-title">
                   <a href="<?php print $item['url_origin']; ?>"><?php print $item['title']; ?></a>
                 </div>
+
+                <?php if (!empty($item['desc'])): ?>
+                <div class="news-desc">
+                  <span class="desc"><?php print $item['desc']; ?></span>
+                </div>
+                <?php endif; ?>
+
+                <?php if (!empty($item['author'])): ?>
                 <div class="news-author">
                   <span class="author-label">公众号：</span>
                   <span class="author-nickname"><?php print $item['author']; ?></span>
                 </div>
+                <?php endif; ?>
+
                 <div class="news-footer">
                   <?php print $item['created']; ?>
                 </div>
