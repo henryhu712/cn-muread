@@ -13,7 +13,8 @@
                   <a href="<?php print $item['url_origin']; ?>"><?php print $item['title']; ?></a>
                 </div>
                 <div class="news-author">
-                  <?php print $item['author']; ?>
+                  <span class="author-label">公众号：</span>
+                  <span class="author-nickname"><?php print $item['author']; ?></span>
                 </div>
                 <div class="news-footer">
                   <?php print $item['created']; ?>
