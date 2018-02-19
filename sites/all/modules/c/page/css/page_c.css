@@ -4,7 +4,8 @@
 .field-name-field-image .field-label {
   display: none;
 }
-.navbar-header .navbar-brand {
+body.page-c .navbar > .container-fluid .navbar-header .navbar-brand {
+  margin-left: 0;
   padding: 15px 0px 15px 15px;
 }
 .main-content-wrapper > .row {
