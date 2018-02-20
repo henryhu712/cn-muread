@@ -156,7 +156,6 @@ function page_wechat_port() {
   drupal_exit();
    */
 
-  //$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
   $postStr = file_get_contents("php://input");
 
   if (!empty($postStr)){
@@ -174,7 +173,6 @@ function page_wechat_port() {
         $wechatObj->responseMsg($postObj, $fromUsername, $toUsername, $answer);
   drupal_exit();
 
-    $flag1 = 0;
     if ($postObj->MsgType == 'text' || $postObj->MsgType == 'voice') {
       if ($postObj->MsgType == 'text') {
         $keyword = $postObj->Content;
@@ -196,7 +194,6 @@ function page_wechat_port() {
     elseif ($postObj->MsgType == 'event') {
       if ($postObj->Event == 'subscribe') {
         //list($ouid, $bid) = chatbots_log_conversation($fromUsername, $toUsername, 'beginning', '');
-        $flag1 = 1;
       }
     }
   }
