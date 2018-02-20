@@ -101,13 +101,13 @@ class wechatCallbackapiTest {
   public function responseMsg($postObj, $fromUsername, $toUsername, $keyword) {
     $time = time();
     $textTpl = "<xml>
-                                                        <ToUserName><![CDATA[%s]]></ToUserName>
-                                                        <FromUserName><![CDATA[%s]]></FromUserName>
-                                                        <CreateTime>%s</CreateTime>
-                                                        <MsgType><![CDATA[%s]]></MsgType>
-                                                        <Content><![CDATA[%s]]></Content>
-                                                        <FuncFlag>0</FuncFlag>
-                                                        </xml>";             
+                  <ToUserName><![CDATA[%s]]></ToUserName>
+                  <FromUserName><![CDATA[%s]]></FromUserName>
+                  <CreateTime>%s</CreateTime>
+                  <MsgType><![CDATA[%s]]></MsgType>
+                  <Content><![CDATA[%s]]></Content>
+                  <FuncFlag>0</FuncFlag>
+                </xml>";
     if(!empty( $keyword ))
                 {
                         $msgType = "text";
@@ -119,9 +119,8 @@ class wechatCallbackapiTest {
                 }
 
   }
-                
-        private function checkSignature()
-        {
+
+  private function checkSignature() {
         // you must define TOKEN by yourself
         if (!defined("TOKEN")) {
             throw new Exception('TOKEN is not defined!');
@@ -158,7 +157,7 @@ function page_wechat_port() {
 
   $postStr = file_get_contents("php://input");
 
-  if (!empty($postStr)){
+  if (!empty($postStr)) {
     /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
        the best way is to check the validity of xml by yourself */
     libxml_disable_entity_loader(true);
@@ -169,33 +168,29 @@ function page_wechat_port() {
 
     $answer = "查看 https://cn.muread.com/c/all";
 
-        $wechatObj = new wechatCallbackapiTest();
-        $wechatObj->responseMsg($postObj, $fromUsername, $toUsername, $answer);
-  drupal_exit();
 
-    if ($postObj->MsgType == 'text' || $postObj->MsgType == 'voice') {
-      if ($postObj->MsgType == 'text') {
-        $keyword = $postObj->Content;
-      }
-      else {
-        if (isset($postObj->Recognition)) {
-          $keyword = empty($postObj->Recognition) ? '' : (string)$postObj->Recognition;
+    if ($postObj->MsgType == 'text') {
+      $url = trim($postObj->Content);
+      if (strlen($url) > 27 && substr($url, 0, 27) == 'https://mp.weixin.qq.com/s/') {
+        if ($page = file_get_contents($url)) {  
+          home_create_ding_yue_hao($page, $url);
+          $answer = "成功创建！ https://cn.muread.com/c/all";
         }
       }
-      $keyword = trim($keyword);
-      $val23 = (int)$keyword;
 
-
-        $answer = "正在处理页面...";
-        $wechatObj = new wechatCallbackapiTest();
-        $wechatObj->responseMsg($postObj, $fromUsername, $toUsername, $answer);
-
+      $wechatObj = new wechatCallbackapiTest();
+      $wechatObj->responseMsg($postObj, $fromUsername, $toUsername, $answer);
     }
+/*
     elseif ($postObj->MsgType == 'event') {
       if ($postObj->Event == 'subscribe') {
         //list($ouid, $bid) = chatbots_log_conversation($fromUsername, $toUsername, 'beginning', '');
       }
     }
+ */
+  }
+  else {
+    echo 'Error';
   }
 
   drupal_exit();
