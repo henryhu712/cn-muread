@@ -174,6 +174,7 @@ function page_wechat_port() {
       if (strlen($url) > 27 && (substr($url, 0, 27) == 'https://mp.weixin.qq.com/s/' ||
         substr($url, 0, 26) == 'http://mp.weixin.qq.com/s/')) {
         if ($page = file_get_contents($url)) {  
+          module_load_include('inc', 'home', 'dohome');
           home_create_ding_yue_hao($page, $url);
           $answer = "成功创建！ https://cn.muread.com/c/all";
         }
