@@ -197,3 +197,43 @@ function page_wechat_port() {
 
   drupal_exit();
 }
+
+/**
+ * Configure GongZhongHao menu
+ */
+function page_wechat_menu_config() {
+  // 注释下面的语句，创建自定义菜单
+  return 'Empty';
+
+  // 机器人有话说
+  $appid = 'wx4bb9a94a41958924';
+  $secret = '88a01f61d543b20187801a62ec4c5260';
+
+  $url_token = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$secret}";
+  $reply = drupal_http_request($url_token);
+  $data = json_decode($reply->data);
+
+  if ($access_token = $data->access_token) {
+    $post_data = '{"button":[
+                    {"type":"view",
+                     "name":"全部文章",
+                     "url":"https://cn.muread.com/c/all"
+                    },
+                    {"type":"view",
+                     "name":"最新消息",
+                     "url":"https://muread.com/zh"
+                    }
+                   ]}';
+    $options = array(
+      "method" => "POST",
+      "data" => $post_data,
+      "headers" => array("Content-Type" => "text/xml; charset=UTF-8"),
+    );
+    $url_menu = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$access_token}";
+    $result = drupal_http_request($url_menu, $options);
+    return $result;
+  }
+  return 'Error 2';
+}
+
+

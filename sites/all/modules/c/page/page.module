@@ -28,6 +28,14 @@ function page_menu() {
     'file' => 'dopage.inc'
   );
 
+  $rows['wechat_menu_config'] = array(
+    'title' => t('Articles'),
+    'page callback' => 'page_wechat_menu_config',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'dopage.inc'
+  );
+
   return $rows;
 }
 
