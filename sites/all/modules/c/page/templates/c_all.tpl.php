@@ -28,6 +28,9 @@
 
                 <div class="news-footer">
                   <?php print $item['created']; ?>
+                  <?php foreach ($item['categories'] as $category): ?>
+                    <span class="term"><?php print $category; ?></span>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>

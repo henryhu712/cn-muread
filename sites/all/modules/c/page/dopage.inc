@@ -68,6 +68,8 @@ function page_get_articles($last_created = 0) {
         $author = $article->field_author['und'][0]['value'];
       }
 
+      $categories = page_get_categories_array($article);
+
       $data['article_array'][] = array(
         'title' => $article->title,
         'image' => $image_field,
@@ -75,6 +77,7 @@ function page_get_articles($last_created = 0) {
         'created' => $published,
         'author' => $author,
         'desc' => $desc,
+	'categories' => $categories,
       );
     }
   }
@@ -236,4 +239,22 @@ function page_wechat_menu_config() {
   return 'Error 2';
 }
 
+/**
+ * Get categories of article
+ *
+ * Note: debug method:
+ * https://www.drupal.org/project/devel/issues/2828328
+ * dpm(), kpr(), ddl()
+ */
+function page_get_categories_array($article) {
+  $cates = array();
+
+  if (isset($article->field_categories['und'])) {
+    foreach ($article->field_categories['und'] as $cate) {
+      $term = taxonomy_term_load($cate['target_id']);
+      $cates[] = $term->name;
+    }
+  }
+  return $cates;
+}
 
