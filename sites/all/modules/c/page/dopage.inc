@@ -51,7 +51,7 @@ function page_get_articles($last_created = 0) {
     foreach ($article_nodes as $article) {
       $uri = $article->field_image['und'][0]['uri'];
       $image_field = field_view_field('node', $article, 'field_image',
-        array('settings' => array('image_style' => '100-100')));
+        array('settings' => array('image_style' => '130-130')));
 
       $published = '';
       if (isset($article->field_published_date['und'])) {

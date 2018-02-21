@@ -5,10 +5,10 @@
         <div class="main-content-wrapper">
           <?php foreach ($article_items as $key => $item): ?>
             <div class="row news-item-wrap<?php print $key % 2 === 0 ? " news-odd-row" : ""; ?>">
-              <div class="col-xs-3">
+              <div class="col-xs-4">
                 <?php print render($item['image']); ?>
               </div>
-              <div class="col-xs-9">
+              <div class="col-xs-8 item-detail">
                 <div class="news-title">
                   <a href="<?php print $item['url_origin']; ?>"><?php print $item['title']; ?></a>
                 </div>
