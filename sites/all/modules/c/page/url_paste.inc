@@ -65,7 +65,7 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   }
 
   if (!empty($categories)) {
-    $node->field_categories[LANGUAGE_NONE][]['target_id'] = (int)$category;
+    $node->field_categories[LANGUAGE_NONE][]['target_id'] = (int)$categories;
   }
 
   $node = node_submit($node);
