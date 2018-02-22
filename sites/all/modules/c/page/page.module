@@ -41,10 +41,34 @@ function page_menu() {
     'page callback' => 'page_paste',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
-    'file' => 'dopage.inc'
+    'file' => 'url_paste.inc'
   );
 
   return $rows;
+}
+
+/**
+ * Implements hook_form_alter().
+ * https://www.drupal.org/node/1291574
+ */
+function page_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'webform_client_form_5364') { // Paste URL
+    //$form['#validate'][] = 'home_validate_5364';
+
+    $first = array_shift($form['#submit']);
+    array_unshift($form['#submit'], $first, 'page_submit_5364');
+  }
+}
+
+/**
+ * Submit Paste URl form.
+ */
+function page_submit_5364(&$form, &$form_state) {
+  $url = $form_state['input']['submitted']['url'];
+  $categories = $form_state['input']['submitted']['categories'];
+  if ($page = file_get_contents($url)) {
+    page_create_ding_yue_hao($page, $url, $categories);
+  }
 }
 
 /**

@@ -24,31 +24,6 @@ function home_menu() {
 }
 
 /**
- * Implements hook_form_alter().
- * https://www.drupal.org/node/1291574
- */
-function home_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'webform_client_form_5364') { // Paste URL
-    //$form['#validate'][] = 'home_validate_5364';
-
-    $first = array_shift($form['#submit']);
-    array_unshift($form['#submit'], $first, 'home_submit_5364');
-  }
-}
-
-/**
- * Submit Paste URl form.
- */
-function home_submit_5364(&$form, &$form_state) {
-  $url = $form_state['input']['submitted']['url'];
-  $categories = $form_state['input']['submitted']['categories'];
-  if ($page = file_get_contents($url)) {
-    home_create_ding_yue_hao($page, $url, $categories);
-  }
-}
-
-
-/**
  * Implements template_preprocess_page().
 function home_preprocess_page(&$vars) {
   if (current_path() == 'home') {
