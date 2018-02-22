@@ -12,8 +12,8 @@
               </div>
               <div class="col-xs-7 item-detail">
                 <div class="news-title">
-		  <a href="<?php print $item['url_origin']; ?>" target="_blank">
-		    <?php print $item['title']; ?>
+                  <a href="<?php print $item['url_origin']; ?>" target="_blank">
+                    <?php print $item['title']; ?>
                   </a>
                 </div>
 
