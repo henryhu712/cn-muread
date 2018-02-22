@@ -37,10 +37,6 @@ function home_content() {
 
   $vars['number_ding_yue_hao'] = $number;
 
-  // Webform
-  $block = module_invoke('webform', 'block_view', 'client-block-5364');
-  $vars['webform_paste_url'] = render($block['content']);
-
   return theme('template_home', $vars);
 }
 
