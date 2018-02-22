@@ -8,6 +8,9 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand {
   margin-left: 0;
   padding: 15px 0px 15px 15px;
 }
+body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-name {
+  font-size: 14px;
+}
 .main-content-wrapper > .row {
   margin-bottom: 15px;
 }
