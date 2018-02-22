@@ -53,6 +53,13 @@ function page_get_articles($term_id = '', $last_created = 0) {
   if (isset($result['node'])) {
     $article_nodes = entity_load('node', array_keys($result['node']));
     foreach ($article_nodes as $article) {
+      if (count($article->title) > 20) {
+        $title = mb_substr($article->title, 0, 20, 'UTF-8') . '...';
+      }
+      else {
+        $title = $article->title;
+      }
+
       $uri = $article->field_image['und'][0]['uri'];
       $image_field = field_view_field('node', $article, 'field_image',
         array('settings' => array('image_style' => '160-120')));
@@ -75,7 +82,7 @@ function page_get_articles($term_id = '', $last_created = 0) {
       $categories = page_get_categories_array($article);
 
       $data['article_array'][] = array(
-        'title' => $article->title,
+        'title' => $title,
         'image' => $image_field,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
         'created' => $published,
