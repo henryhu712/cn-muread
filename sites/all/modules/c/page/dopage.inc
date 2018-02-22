@@ -217,7 +217,7 @@ function page_wechat_port() {
  */
 function page_wechat_menu_config() {
   // 注释下面的语句，创建自定义菜单
-  return 'Empty';
+  //return 'Empty';
 
   // 机器人有话说
   $appid = 'wx4bb9a94a41958924';
@@ -234,8 +234,8 @@ function page_wechat_menu_config() {
                      "url":"https://cn.muread.com/c/all"
                     },
                     {"type":"view",
-                     "name":"最新消息",
-                     "url":"https://muread.com/zh"
+                     "name":"分享文章",
+                     "url":"https://cn.muread.com/p"
                     }
                    ]}';
     $options = array(
