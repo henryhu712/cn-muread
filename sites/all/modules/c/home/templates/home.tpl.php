@@ -1,7 +1,9 @@
 
+<!--
       <div class="row">
         <?php print $webform_paste_url; ?>
       </div>
+-->
       <div class="row">
         <div class="items-container text-center">
           <a href="/c/all">

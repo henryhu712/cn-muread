@@ -36,6 +36,14 @@ function page_menu() {
     'file' => 'dopage.inc'
   );
 
+  $rows['p'] = array(
+    'title' => t('Paste'),
+    'page callback' => 'page_paste',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'dopage.inc'
+  );
+
   return $rows;
 }
 
@@ -93,6 +101,10 @@ function page_theme($existing, $type, $theme, $path) {
   return array(
     'template_c_all' => array(
       'template' => 'c_all',
+      'path' => $thePath,
+    ),
+    'template_paste' => array(
+      'template' => 'paste',
       'path' => $thePath,
     ),
   );

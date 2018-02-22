@@ -288,3 +288,15 @@ function page_get_term_info($term, $get = 'id') {
 
   return $info;
 }
+
+/**
+ * Paste
+ */
+function page_paste() {
+  // Webform
+  $block = module_invoke('webform', 'block_view', 'client-block-5364');
+  $vars['webform_paste_url'] = render($block['content']);
+
+  return theme('template_paste', $vars);
+}
+
