@@ -19,6 +19,7 @@ function page_c($term = '') {
 
   $vars = array(
     'article_items' => $data['article_array'],
+    'moreExisting' => TRUE,
   );
 
   return theme('template_c_all', $vars);
