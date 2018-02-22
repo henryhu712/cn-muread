@@ -32,7 +32,7 @@ function page_get_articles($term_id = '', $last_created = 0) {
   $query->entityCondition('entity_type', 'node')
         ->entityCondition('bundle', 'ding_yue_hao')
         ->propertyCondition('status', NODE_PUBLISHED)
-        ->propertyOrderBy('created', 'DESC')
+        ->fieldOrderBy('field_published_date', 'value', 'DESC')
         ->addMetaData('account', user_load(1));
   if (!empty($term_id)) {
     $query->fieldCondition('field_categories', 'target_id', $term_id);
