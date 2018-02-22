@@ -14,7 +14,7 @@ function page_paste() {
 /**
  * Create a node of ding yue hao
  */
-function page_create_ding_yue_hao($page, $url, $categories = array()) {
+function page_create_ding_yue_hao($page, $url, $categories = '') {
   preg_match('/var msg_cdn_url = \"([^\"]*)\"/', $page, $m_url, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_title = \"([^\"]*)\"/', $page, $m_title, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_desc = \"([^\"]*)\"/', $page, $m_desc, PREG_OFFSET_CAPTURE);
@@ -65,9 +65,7 @@ function page_create_ding_yue_hao($page, $url, $categories = array()) {
   }
 
   if (!empty($categories)) {
-    foreach ($categories as $category) {
-      $node->field_categories[LANGUAGE_NONE][]['target_id'] = $category;
-    }
+    $node->field_categories[LANGUAGE_NONE][]['target_id'] = (int)$category;
   }
 
   $node = node_submit($node);
