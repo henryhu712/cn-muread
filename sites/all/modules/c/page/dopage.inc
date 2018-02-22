@@ -53,8 +53,8 @@ function page_get_articles($term_id = '', $last_created = 0) {
   if (isset($result['node'])) {
     $article_nodes = entity_load('node', array_keys($result['node']));
     foreach ($article_nodes as $article) {
-      if (count($article->title) > 20) {
-        $title = mb_substr($article->title, 0, 20, 'UTF-8') . '...';
+      if (mb_strlen($article->title) > 22) {
+        $title = mb_substr($article->title, 0, 22, 'UTF-8') . '...';
       }
       else {
         $title = $article->title;
