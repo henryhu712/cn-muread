@@ -16,7 +16,8 @@ function page_c($term = '') {
   //drupal_add_js($page_path . '/js/page_c.js');
   drupal_add_css($page_path . '/css/page_c.css');
 
-  $data = page_get_articles();
+  $term_info = page_get_term_info($term);
+  $data = page_get_articles($term_info['id']);
 
   /*
   drupal_add_js(array('home9Args' => array(
@@ -36,13 +37,16 @@ function page_c($term = '') {
 /**
  * Retrieve all articles.
  */
-function page_get_articles($last_created = 0) {
+function page_get_articles($term_id = '', $last_created = 0) {
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
         ->entityCondition('bundle', 'ding_yue_hao')
         ->propertyCondition('status', NODE_PUBLISHED)
         ->propertyOrderBy('created', 'DESC')
         ->addMetaData('account', user_load(1));
+  if (!empty($term_id)) {
+    $query->fieldCondition('field_categories', 'target_id', $term_id);
+  }
   $result = $query->execute();
 
   $data = array('article_array' => array());
@@ -258,3 +262,29 @@ function page_get_categories_array($article) {
   return $cates;
 }
 
+/**
+ * Get Term Id.
+ */
+function page_get_term_info($term, $get = 'id') {
+  $info = array('id' => '', 'name' => '');
+
+  if (!empty($term) && $term != 'all') {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'taxonomy_term')
+          ->entityCondition('bundle', 'category')
+          ->fieldCondition('field_alias', 'value', $term)
+          ->addMetaData('account', user_load(1));
+    $result = $query->execute();
+
+    if (isset($result['taxonomy_term'])) {
+      $keys = array_keys($result['taxonomy_term']);
+      $terms = entity_load('taxonomy_term', $keys);
+      foreach ($terms as $term_obj) {
+	$info['id'] = $term_obj->tid;
+	$info['name'] = $term_obj->name;
+      }
+    }
+  }
+
+  return $info;
+}

@@ -52,6 +52,10 @@ function page_preprocess_html(&$vars) {
     if ($arg1 === 'all') {
       $termName = '全部文章 | 必读';
     }
+    else {
+      $termInfo = page_get_term_info($arg1); 
+      $termName = $termInfo['name'] . ' | 必读';
+    }
 
     $vars['head_title'] = $termName;
   }
@@ -69,6 +73,10 @@ function page_preprocess_page(&$vars) {
     $termName = 'None';
     if ($arg1 === 'all') {
       $termName = '全部文章';
+    }
+    else {
+      $termInfo = page_get_term_info($arg1); 
+      $termName = $termInfo['name'];
     }
 
     $vars['term_name'] = $termName;

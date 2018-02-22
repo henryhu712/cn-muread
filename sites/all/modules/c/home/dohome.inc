@@ -55,12 +55,17 @@ function home_content() {
 /**
  * Create a node of ding yue hao
  */
-function home_create_ding_yue_hao($page, $url) {
+function home_create_ding_yue_hao($page, $url, $categories = array()) {
   preg_match('/var msg_cdn_url = \"([^\"]*)\"/', $page, $m_url, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_title = \"([^\"]*)\"/', $page, $m_title, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_desc = \"([^\"]*)\"/', $page, $m_desc, PREG_OFFSET_CAPTURE);
   preg_match('/var publish_time = \"([^\"]*)\"/', $page, $m_time, PREG_OFFSET_CAPTURE);
   preg_match('/var nickname = \"([^\"]*)\"/', $page, $m_nickname, PREG_OFFSET_CAPTURE);
+
+  if (!$m_url[1][0] || !$m_url[1][0]) {
+    echo 'Error';
+    return;
+  }
 
   $node = new stdClass();
 
@@ -98,6 +103,12 @@ function home_create_ding_yue_hao($page, $url) {
 
   if ($desc = $m_desc[1][0]) {
     $node->field_desc[LANGUAGE_NONE][]['value'] = $desc;
+  }
+
+  if (!empty($categories)) {
+    foreach ($categories as $category) {
+      $node->field_categories[LANGUAGE_NONE][]['target_id'] = $category;
+    }
   }
 
   $node = node_submit($node);
