@@ -5,12 +5,16 @@
         <div class="main-content-wrapper">
           <?php foreach ($article_items as $key => $item): ?>
             <div class="row news-item-wrap<?php print $key % 2 === 0 ? " news-odd-row" : ""; ?>">
-              <div class="col-xs-4">
-                <?php print render($item['image']); ?>
+              <div class="col-xs-5">
+                <a href="<?php print $item['url_origin']; ?>" target="_blank">
+                  <?php print render($item['image']); ?>
+                </a>
               </div>
-              <div class="col-xs-8 item-detail">
+              <div class="col-xs-7 item-detail">
                 <div class="news-title">
-                  <a href="<?php print $item['url_origin']; ?>"><?php print $item['title']; ?></a>
+		  <a href="<?php print $item['url_origin']; ?>" target="_blank">
+		    <?php print $item['title']; ?>
+                  </a>
                 </div>
 
                 <?php if (!empty($item['desc'])): ?>
@@ -21,7 +25,6 @@
 
                 <?php if (!empty($item['author'])): ?>
                 <div class="news-author">
-                  <span class="author-label">公众号：</span>
                   <span class="author-nickname"><?php print $item['author']; ?></span>
                 </div>
                 <?php endif; ?>
