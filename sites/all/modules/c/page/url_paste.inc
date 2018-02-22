@@ -4,6 +4,10 @@
  * Paste
  */
 function page_paste() {
+
+  $page_path = drupal_get_path("module", "page");
+  drupal_add_css($page_path . '/css/url_paste.css');
+
   // Webform
   $block = module_invoke('webform', 'block_view', 'client-block-5364');
   $vars['webform_paste_url'] = render($block['content']);

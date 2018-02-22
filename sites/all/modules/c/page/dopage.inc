@@ -9,8 +9,6 @@
  */
 function page_c($term = '') {
 
-  global $language;
-
   $page_path = drupal_get_path("module", "page");
   //drupal_add_js($page_path . '/js/dragend.min.js');
   //drupal_add_js($page_path . '/js/page_c.js');
@@ -18,14 +16,6 @@ function page_c($term = '') {
 
   $term_info = page_get_term_info($term);
   $data = page_get_articles($term_info['id']);
-
-  /*
-  drupal_add_js(array('home9Args' => array(
-      'lang_prefix' => $language->prefix,
-      'last_reddit_id' => $data['last_reddit_id'],
-      'last_created' => $data['last_created'],
-  )), 'setting');
-   */
 
   $vars = array(
     'article_items' => $data['article_array'],
@@ -217,7 +207,7 @@ function page_wechat_port() {
  */
 function page_wechat_menu_config() {
   // 注释下面的语句，创建自定义菜单
-  //return 'Empty';
+  return 'Empty';
 
   // 机器人有话说
   $appid = 'wx4bb9a94a41958924';
