@@ -33,7 +33,8 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-nam
   line-height: 36px;
 }
 .main-content-wrapper > .row .item-detail .news-footer .term {
-  border: 1px solid #c0c0c0;
+  border: 1px solid #e4ebf4;
   border-radius: 6px;
   padding: 2px 10px;
+  color: #78909c;
 }

@@ -81,7 +81,7 @@ function page_get_articles($term_id = '', $last_created = 0) {
         'created' => $published,
         'author' => $author,
         'desc' => $desc,
-	'categories' => $categories,
+        'categories' => $categories,
       );
     }
   }
@@ -280,8 +280,8 @@ function page_get_term_info($term, $get = 'id') {
       $keys = array_keys($result['taxonomy_term']);
       $terms = entity_load('taxonomy_term', $keys);
       foreach ($terms as $term_obj) {
-	$info['id'] = $term_obj->tid;
-	$info['name'] = $term_obj->name;
+        $info['id'] = $term_obj->tid;
+        $info['name'] = $term_obj->name;
       }
     }
   }
