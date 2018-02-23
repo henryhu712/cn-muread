@@ -1,6 +1,7 @@
 (function($) {
 
   var pager = 0;
+  var term_id = 0;
 
   /*
   var more_status = 'idle';
@@ -41,19 +42,17 @@
       // 更多
       $('#item-more9').on('click', function(e) {
 
-        console.log('bere');
         if ($('#more-spinner').hasClass('hidden') && pager > -1) {
-          console.log('inin');
 
+          $.post('more', {pageer:pager, term_id:term_id}, function(result) {
           /*
-          $.post('more9', {last_created:last_created, lang_prefix:lang_prefix}, function(result) {
             console.log(result);
             show_more_items(result.news_array);
             $('#more-spinner').addClass('hidden');
             more_status = 'idle';
             last_created = result.last_created;
-          }, 'json');
           */
+          }, 'json');
 
           $('#more-spinner').removeClass('hidden');
 

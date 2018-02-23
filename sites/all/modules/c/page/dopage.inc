@@ -25,6 +25,27 @@ function page_c($term = '') {
 }
 
 /**
+ * More entrance
+ */
+function page_more() {
+
+  $pager = isset($_REQUEST['pager']) ? $_REQUEST['pager'] : 0;
+  $term_id = isset($_REQUEST['term_id']) ? $_REQUEST['term_id'] : 0;
+  ddl($pager);
+  ddl($term_id);
+  /*
+  if (empty($last_created) || empty($lang_prefix)) {
+    echo json_encode(array('Error 87234'));
+    drupal_exit();
+  }
+
+  $data = _get_news_items($last_created, $lang_prefix);
+  echo json_encode($data);
+   */
+  drupal_exit();
+}
+
+/**
  * Retrieve all articles.
  */
 function page_get_articles($term_id = '', $pager = 0) {
