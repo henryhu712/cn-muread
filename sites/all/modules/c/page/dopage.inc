@@ -24,7 +24,7 @@ function page_c($term_alias = '') {
 
   $vars = array(
     'article_items' => $data['article_array'],
-    'moreExisting' => count($data['article_array']) > MAX_ITEMS_ONE_PAGE ? TRUE : FALSE,
+    'moreExisting' => count($data['article_array']) < MAX_ITEMS_ONE_PAGE ? FALSE : TRUE,
   );
 
   return theme('template_c_all', $vars);
