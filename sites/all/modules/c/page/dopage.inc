@@ -28,12 +28,14 @@ function page_c($term = '') {
 /**
  * Retrieve all articles.
  */
-function page_get_articles($term_id = '', $last_created = 0) {
+function page_get_articles($term_id = '', $pager = 0) {
+
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
         ->entityCondition('bundle', 'ding_yue_hao')
         ->propertyCondition('status', NODE_PUBLISHED)
         ->fieldOrderBy('field_published_date', 'value', 'DESC')
+        ->range($pager * 15, 15)
         ->addMetaData('account', user_load(1));
   if (!empty($term_id)) {
     $query->fieldCondition('field_categories', 'target_id', $term_id);

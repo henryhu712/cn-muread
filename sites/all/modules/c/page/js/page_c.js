@@ -1,5 +1,7 @@
 (function($) {
 
+  var pager = 0;
+
   /*
   var more_status = 'idle';
   var last_created = 0;
@@ -40,7 +42,7 @@
       $('#item-more9').on('click', function(e) {
 
         console.log('bere');
-        if ($('#more-spinner').hasClass('hidden') && last_created > 10000) {
+        if ($('#more-spinner').hasClass('hidden') && pager > -1) {
           console.log('inin');
 
           /*
