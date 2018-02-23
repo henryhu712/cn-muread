@@ -50,7 +50,7 @@
               <img src="../sites/all/modules/c/home/images/spinner.gif" alt="more">
             </span>
             <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-            <span class="more-text"> 更多</span>
+            <span class="more-text"> 显示更多</span>
           </span>
         </div>
       </div>

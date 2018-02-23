@@ -42,6 +42,7 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-nam
   color: #78909c;
 }
 #muread-articles #item-more9 {
+  cursor: pointer;
   margin-bottom: 50px;
 }
 #muread-articles #item-more9 .more-wrap {
