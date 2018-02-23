@@ -48,3 +48,13 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-nam
 #muread-articles #item-more9 .more-wrap {
   background-color: #f8f8f8;
 }
+#muread-articles #item-more9 .more-wrap .spinner-wrap {
+  position: relative;
+}
+#muread-articles #item-more9 .more-wrap .spinner-wrap .spinner {
+  position: absolute;
+  left: -18px;
+}
+#muread-articles #item-more9 .more-wrap .spinner-wrap .glyphicon {
+  padding-top: 4px;
+}
