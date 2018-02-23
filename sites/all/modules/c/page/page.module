@@ -99,6 +99,9 @@ function page_preprocess_html(&$vars) {
 
     $vars['head_title'] = $termName;
   }
+  else if ($arg0 == 'home') {
+    $vars['head_title'] = '必读';
+  }
 }
 
 /**
@@ -118,7 +121,6 @@ function page_preprocess_page(&$vars) {
       $termInfo = page_get_term_info($arg1); 
       $termName = $termInfo['name'];
     }
-
     $vars['term_name'] = $termName;
   }
 }
