@@ -4,6 +4,8 @@
  * @file
  */
 
+define('MAX_ITEMS_ONE_PAGE', 18);
+
 /**
  * Page c/all
  */
@@ -22,7 +24,7 @@ function page_c($term_alias = '') {
 
   $vars = array(
     'article_items' => $data['article_array'],
-    'moreExisting' => TRUE,
+    'moreExisting' => count($data['article_array']) > MAX_ITEMS_ONE_PAGE ? TRUE : FALSE,
   );
 
   return theme('template_c_all', $vars);
@@ -56,7 +58,7 @@ function page_get_articles($term_id = '', $pager = 0) {
         ->propertyCondition('status', NODE_PUBLISHED)
         ->fieldOrderBy('field_published_date', 'value', 'DESC')
         ->propertyOrderBy('created', 'DESC')
-        ->range($pager * 18, 18)
+        ->range($pager * MAX_ITEMS_ONE_PAGE, MAX_ITEMS_ONE_PAGE)
         ->addMetaData('account', user_load(1));
   if (!empty($term_id)) {
     $query->fieldCondition('field_categories', 'target_id', $term_id);
