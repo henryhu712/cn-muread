@@ -41,9 +41,9 @@
           ++pager;
           $.post('/more', {pageer:pager, term_id:term_id}, function(result) {
             console.log(result);
+            $('#more-spinner').addClass('hidden');
           /*
             show_more_items(result.news_array);
-            $('#more-spinner').addClass('hidden');
             more_status = 'idle';
             last_created = result.last_created;
           */

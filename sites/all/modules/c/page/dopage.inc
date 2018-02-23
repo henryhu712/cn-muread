@@ -35,6 +35,7 @@ function page_more() {
 
   $pager = isset($_REQUEST['pager']) ? $_REQUEST['pager'] : 0;
   $term_id = isset($_REQUEST['term_id']) ? $_REQUEST['term_id'] : 0;
+  drupal_set_message($pager);
   if (empty($pager)) {
     echo json_encode(array('Error 87234'));
     drupal_exit();
