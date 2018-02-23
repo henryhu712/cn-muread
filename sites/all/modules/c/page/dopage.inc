@@ -286,7 +286,7 @@ function page_get_categories_array($article) {
       }
       else {
         $alias = $term->field_alias['und'][0]['safe_value'];
-        $cates[] = '<a href="/c/' . $alias . '">' . $term->name . '</a>';
+        $cates[] = '<a href="/c/' . $alias . '" target="_blank">' . $term->name . '</a>';
       }
     }
   }
@@ -297,6 +297,7 @@ function page_get_categories_array($article) {
  * Get Term information from alias.
  */
 function page_get_term_info($term_alias = '') {
+
   $info = array('id' => '', 'name' => '');
 
   if (!empty($term_alias) && $term_alias != 'all') {
