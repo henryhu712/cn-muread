@@ -3,29 +3,27 @@
   var pager = 0;
   var term_id = 0;
 
-  /*
-  var more_status = 'idle';
-  var last_created = 0;
 
   function show_more_items(newsArr) {
     var $wrapper = $('.main-content-wrapper');
     for (var ix in newsArr) {
       var odd = ix % 2 === 0 ? " news-odd-row" : "";
-      var itemHTML = '<div class="news-item-wrap' + odd + '">' +
-                       '<div class="news-title">' +
-                         '<a href="' + newsArr[ix]['url_origin'] + '">' + newsArr[ix]['title'] + '</a>' +
+      var itemHTML = '<div class="row news-item-wrap' + odd + '">' +
+                       '<div class="col-xs-5">' +
+                         '<a href="' + newsArr[ix]['url_origin'] + '" target="_blank">' +
+			   newsArr[ix]['image'] +
+			 '</a>' +
                        '</div>' +
-                       '<div class="news-footer">' + newsArr[ix]['created'] + '</div>' +
+                       '<div class="col-xs-7 item-detail">' +
+		       '</div>' +
                       '</div>';
       $wrapper.append(itemHTML);
-
     }
 
-    if (newsArr.length < 16) {
+    if (newsArr.length < 18) {
       $('#item-more9').hide();
     }
   }
-  */
 
 
   Drupal.behaviors.muread_articles = {
@@ -39,14 +37,10 @@
         if ($('#more-spinner').hasClass('hidden') && pager > -1) {
 
           ++pager;
-          $.post('/more', {pageer:pager, term_id:term_id}, function(result) {
+          $.post('/more', {pager:pager, term_id:term_id}, function(result) {
             console.log(result);
             $('#more-spinner').addClass('hidden');
-          /*
-            show_more_items(result.news_array);
-            more_status = 'idle';
-            last_created = result.last_created;
-          */
+            show_more_items(result.article_array);
           }, 'json');
 
           $('#more-spinner').removeClass('hidden');
