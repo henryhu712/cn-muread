@@ -11,11 +11,23 @@
       var itemHTML = '<div class="row news-item-wrap' + odd + '">' +
                        '<div class="col-xs-5">' +
                          '<a href="' + newsArr[ix]['url_origin'] + '" target="_blank">' +
-			   newsArr[ix]['image'] +
-			 '</a>' +
+                           newsArr[ix]['image'] +
+                         '</a>' +
                        '</div>' +
                        '<div class="col-xs-7 item-detail">' +
-		       '</div>' +
+                         '<div class="news-title">' +
+                           '<a href="' + newsArr[ix]['url_origin'] + '" target="_blank">' +
+                             newsArr[ix]['title'] +
+                           '</a>' +
+                         '</div>' +
+                         '<div class="news-author">' +
+                           '<span class="author-nickname">' + newsArr[ix]['author'] + '</span>' +
+                         '</div>' +
+                         '<div class="news-footer">' +
+                           newsArr[ix]['created'] +
+                           '<span class="term">' + newsArr[ix]['categories'][0] + '</span>' +
+                         '</div>' +
+                       '</div>' +
                       '</div>';
       $wrapper.append(itemHTML);
     }
