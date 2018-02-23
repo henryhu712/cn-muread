@@ -43,7 +43,7 @@
     </div>
     <?php if ($moreExisting): ?>
     <div id="item-more9" class="row">
-      <div class="col-xs-12 col-sm-8">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="btn-lg text-center more-wrap">
           <span class="spinner-wrap">
             <span class="spinner hidden" id="more-spinner">

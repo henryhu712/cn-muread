@@ -38,9 +38,10 @@
 
         if ($('#more-spinner').hasClass('hidden') && pager > -1) {
 
-          $.post('more', {pageer:pager, term_id:term_id}, function(result) {
-          /*
+          ++pager;
+          $.post('/more', {pageer:pager, term_id:term_id}, function(result) {
             console.log(result);
+          /*
             show_more_items(result.news_array);
             $('#more-spinner').addClass('hidden');
             more_status = 'idle';

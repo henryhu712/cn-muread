@@ -35,17 +35,13 @@ function page_more() {
 
   $pager = isset($_REQUEST['pager']) ? $_REQUEST['pager'] : 0;
   $term_id = isset($_REQUEST['term_id']) ? $_REQUEST['term_id'] : 0;
-  ddl($pager);
-  ddl($term_id);
-  /*
-  if (empty($last_created) || empty($lang_prefix)) {
+  if (empty($pager)) {
     echo json_encode(array('Error 87234'));
     drupal_exit();
   }
 
-  $data = _get_news_items($last_created, $lang_prefix);
+  $data = page_get_articles($term_id, $pager);
   echo json_encode($data);
-   */
   drupal_exit();
 }
 
