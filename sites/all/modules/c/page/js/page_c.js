@@ -31,13 +31,7 @@
   Drupal.behaviors.muread_articles = {
     attach: function(context, settings) {
 
-      //$('#muread-articles').dragend();
-
-      /*
-      var last_reddit_id = settings.home9Args.last_reddit_id;
-      var lang_prefix = settings.home9Args.lang_prefix;
-      last_created = settings.home9Args.last_created;
-      */
+      var term_id = settings.page_c.term_id;
 
       // 更多
       $('#item-more9').on('click', function(e) {

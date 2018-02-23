@@ -16,6 +16,10 @@ function page_c($term = '') {
   $term_info = page_get_term_info($term);
   $data = page_get_articles($term_info['id']);
 
+  drupal_add_js(array('page_c' => array(
+    'term_id' => $term_info['id'],
+  )), 'setting');
+
   $vars = array(
     'article_items' => $data['article_array'],
     'moreExisting' => TRUE,
@@ -55,7 +59,7 @@ function page_get_articles($term_id = '', $pager = 0) {
         ->entityCondition('bundle', 'ding_yue_hao')
         ->propertyCondition('status', NODE_PUBLISHED)
         ->fieldOrderBy('field_published_date', 'value', 'DESC')
-        ->range($pager * 15, 15)
+        ->range($pager * 18, 18)
         ->addMetaData('account', user_load(1));
   if (!empty($term_id)) {
     $query->fieldCondition('field_categories', 'target_id', $term_id);
@@ -283,7 +287,7 @@ function page_get_categories_array($article) {
 }
 
 /**
- * Get Term Id.
+ * Get Term information.
  */
 function page_get_term_info($term, $get = 'id') {
   $info = array('id' => '', 'name' => '');
