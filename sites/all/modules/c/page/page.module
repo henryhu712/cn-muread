@@ -45,7 +45,7 @@ function page_menu() {
   );
 
   $rows['p'] = array(
-    'title' => '分享',
+    'title' => '发布',
     'page callback' => 'page_paste',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
