@@ -7,7 +7,7 @@
             <div class="row news-item-wrap<?php print $key % 2 === 0 ? " news-odd-row" : ""; ?>">
               <div class="col-xs-5">
                 <a href="<?php print $item['url_origin']; ?>" target="_blank">
-                  <?php print render($item['image']); ?>
+                  <?php print $item['image']; ?>
                 </a>
               </div>
               <div class="col-xs-7 item-detail">

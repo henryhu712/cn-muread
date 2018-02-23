@@ -76,6 +76,7 @@ function page_get_articles($term_id = '', $pager = 0) {
       $uri = $article->field_image['und'][0]['uri'];
       $image_field = field_view_field('node', $article, 'field_image',
         array('settings' => array('image_style' => '160-120')));
+      $image_html = render($image_field);
 
       $published = '';
       if (isset($article->field_published_date['und'])) {
@@ -96,7 +97,7 @@ function page_get_articles($term_id = '', $pager = 0) {
 
       $data['article_array'][] = array(
         'title' => $title,
-        'image' => $image_field,
+        'image' => $image_html,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
         'created' => $published,
         'author' => $author,
