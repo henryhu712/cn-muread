@@ -7,13 +7,13 @@
 /**
  * Page c/all
  */
-function page_c($term = '') {
+function page_c($term_alias = '') {
 
   $page_path = drupal_get_path("module", "page");
   drupal_add_js($page_path . '/js/page_c.js');
   drupal_add_css($page_path . '/css/page_c.css');
 
-  $term_info = page_get_term_info($term);
+  $term_info = page_get_term_info($term_alias);
   $data = page_get_articles($term_info['id']);
 
   drupal_add_js(array('page_c' => array(
@@ -278,23 +278,29 @@ function page_get_categories_array($article) {
   if (isset($article->field_categories['und'])) {
     foreach ($article->field_categories['und'] as $cate) {
       $term = taxonomy_term_load($cate['target_id']);
-      $cates[] = $term->name;
+      if (empty($term->field_alias['und'])) {
+        $cates[] = $term->name;
+      }
+      else {
+        $alias = $term->field_alias['und'][0]['safe_value'];
+        $cates[] = '<a href="/c/' + $alias + '">' + $term->name + '</a>';
+      }
     }
   }
   return $cates;
 }
 
 /**
- * Get Term information.
+ * Get Term information from alias.
  */
-function page_get_term_info($term, $get = 'id') {
+function page_get_term_info($term_alias = '') {
   $info = array('id' => '', 'name' => '');
 
-  if (!empty($term) && $term != 'all') {
+  if (!empty($term_alias) && $term_alias != 'all') {
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'taxonomy_term')
           ->entityCondition('bundle', 'category')
-          ->fieldCondition('field_alias', 'value', $term)
+          ->fieldCondition('field_alias', 'value', $term_alias)
           ->addMetaData('account', user_load(1));
     $result = $query->execute();
 
