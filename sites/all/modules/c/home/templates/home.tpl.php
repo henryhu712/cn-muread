@@ -7,10 +7,12 @@
           </a>
         </div>
       </div>
+<!--
       <div class="col-sm-4">
 关注公众号：必读推荐
 
       </div>
+-->
     </div>
   </div>
 
