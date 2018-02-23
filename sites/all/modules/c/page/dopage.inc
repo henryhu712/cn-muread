@@ -55,6 +55,7 @@ function page_get_articles($term_id = '', $pager = 0) {
         ->entityCondition('bundle', 'ding_yue_hao')
         ->propertyCondition('status', NODE_PUBLISHED)
         ->fieldOrderBy('field_published_date', 'value', 'DESC')
+        ->propertyOrderBy('created', 'DESC')
         ->range($pager * 18, 18)
         ->addMetaData('account', user_load(1));
   if (!empty($term_id)) {
