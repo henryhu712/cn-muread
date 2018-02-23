@@ -36,44 +36,27 @@
       last_created = settings.home9Args.last_created;
       */
 
-      // Click More
-      /*
+      // 更多
       $('#item-more9').on('click', function(e) {
 
+        console.log('bere');
         if ($('#more-spinner').hasClass('hidden') && last_created > 10000) {
-          $.post('more9', {last_created:last_created, lang_prefix:lang_prefix}, function(result) {
+          console.log('inin');
 
+          /*
+          $.post('more9', {last_created:last_created, lang_prefix:lang_prefix}, function(result) {
             console.log(result);
             show_more_items(result.news_array);
-
             $('#more-spinner').addClass('hidden');
             more_status = 'idle';
-
             last_created = result.last_created;
-
           }, 'json');
+          */
 
           $('#more-spinner').removeClass('hidden');
-          more_status = 'sending';
+
         }
       });
-      */
-
-
-      /*
-      var html = '';
-      var newsItems = Drupal.settings.muread_home.news_items;
-
-      var odd = false;
-      for (var ix in newsItems) {
-        html += '<div class="news-item-wrap' + (odd ? " news-odd-row" : "") + '"><a href="' +
-          newsItems[ix].url_origin + '" target="_blank">' + newsItems[ix].title + '</a></div>';
-        odd = !odd;
-      }
-
-      $('.main-content-wrapper').append(html);
-      */
-
 
     }
   };
