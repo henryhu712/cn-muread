@@ -11,33 +11,39 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand {
 body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-name {
   font-size: 16px;
 }
-.main-content-wrapper > .row {
+#muread-articles .main-content-wrapper > .row {
   margin-bottom: 15px;
 }
-.main-content-wrapper > .row .field-name-field-image img {
+#muread-articles .main-content-wrapper > .row .field-name-field-image img {
   border-radius: 5px;
   margin: 0 auto;
 }
-.main-content-wrapper > .row .item-detail {
+#muread-articles .main-content-wrapper > .row .item-detail {
   padding-left: 0;
 }
-.main-content-wrapper > .row .item-detail .news-title {
+#muread-articles .main-content-wrapper > .row .item-detail .news-title {
   font-size: 18px;
   margin-bottom: 8px;
 }
-.main-content-wrapper > .row .item-detail .news-title a {
+#muread-articles .main-content-wrapper > .row .item-detail .news-title a {
   text-decoration: none;
 }
-.main-content-wrapper > .row .item-detail .news-author {
+#muread-articles .main-content-wrapper > .row .item-detail .news-author {
   color: #78909c;
 }
-.main-content-wrapper > .row .item-detail .news-footer {
+#muread-articles .main-content-wrapper > .row .item-detail .news-footer {
   color: #c0c0c0;
   line-height: 36px;
 }
-.main-content-wrapper > .row .item-detail .news-footer .term {
+#muread-articles .main-content-wrapper > .row .item-detail .news-footer .term {
   border: 1px solid #e4ebf4;
   border-radius: 6px;
   padding: 2px 10px;
   color: #78909c;
+}
+#muread-articles #item-more9 {
+  margin-bottom: 50px;
+}
+#muread-articles #item-more9 .more-wrap {
+  background-color: #f8f8f8;
 }
