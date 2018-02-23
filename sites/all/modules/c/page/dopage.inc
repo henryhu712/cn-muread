@@ -273,6 +273,7 @@ function page_wechat_menu_config() {
  * dpm(), kpr(), ddl()
  */
 function page_get_categories_array($article) {
+
   $cates = array();
 
   if (isset($article->field_categories['und'])) {
@@ -283,7 +284,7 @@ function page_get_categories_array($article) {
       }
       else {
         $alias = $term->field_alias['und'][0]['safe_value'];
-        $cates[] = '<a href="/c/' + $alias + '">' + $term->name + '</a>';
+        $cates[] = '<a href="/c/' . $alias . '">' . $term->name . '</a>';
       }
     }
   }
