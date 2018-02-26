@@ -14,3 +14,11 @@ body.node-type-ding-yue-hao .main-container.container .article-wrap h1 {
   margin: 0;
   padding: 0;
 }
+body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .article-cover img {
+  margin: 0 auto;
+}
+@media (max-width: 576px) {
+  body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .article-cover img {
+    width: 100%;
+  }
+}
