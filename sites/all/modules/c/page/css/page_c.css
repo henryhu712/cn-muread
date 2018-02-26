@@ -27,6 +27,7 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-nam
 }
 #muread-articles .main-content-wrapper > .row .item-detail .news-title a {
   text-decoration: none;
+  color: #3e3e3e;
 }
 #muread-articles .main-content-wrapper > .row .item-detail .news-author {
   color: #78909c;
