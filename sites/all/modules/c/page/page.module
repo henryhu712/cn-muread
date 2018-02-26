@@ -138,17 +138,17 @@ function page_preprocess_page(&$vars) {
  * Implements hook_preprocess_node().
  */
 function page_preprocess_node(&$node) {
-  if ($node->type == 'ding_yue_hao') {
+  if ($node['type'] == 'ding_yue_hao') {
     $node['theme_hook_suggestions'][] = 'node_ding_yue_hao';
 
     $node['published'] = '';
-    if (isset($node->field_published_date['und'])) {
-      $node['published'] = date('Y-m-d', $node->field_published_date['und'][0]['value']);
+    if (isset($node['field_published_date']['und'])) {
+      $node['published'] = date('Y-m-d', $node['field_published_date']['und'][0]['value']);
     }
 
     $node['author'] = '';
-    if (isset($article->field_author['und'])) {
-      $node['author'] = $node->field_author['und'][0]['value'];
+    if (isset($node['field_author']['und'])) {
+      $node['author'] = $node['field_author']['und'][0]['value'];
     }
   }
 }
