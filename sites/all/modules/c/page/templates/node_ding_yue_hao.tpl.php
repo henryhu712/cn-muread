@@ -7,14 +7,12 @@
       <?php print $author; ?>
     </span>
   </header>
-  <?php
-    // Hide comments, tags, and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    hide($content['field_tags']);
-    kpr($content);
-    print render($content);
-  ?>
+  <div class="article-cover">
+    <img src="<?php print $image_url; ?>" alt="cover">
+  </div>
+  <div class="article-desc">
+    <?php print $desc; ?>
+  </div>
   <?php
     // Only display the wrapper div if there are tags or links.
     $field_tags = render($content['field_tags']);

@@ -150,6 +150,14 @@ function page_preprocess_node(&$node) {
     if (!empty($node['field_author'])) {
       $node['author'] = $node['field_author'][0]['value'];
     }
+
+    $uri = $node['field_image'][0]['#item']['uri'];
+    $node['image_url'] = file_get_url($uri);
+
+    $node['desc'] = '';
+    if (!empty($node['field_desc'])) {
+      $node['desc'] = $node['field_desc'][0]['safe_value'];
+    }
   }
 }
 
