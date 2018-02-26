@@ -12,6 +12,7 @@
     hide($content['comments']);
     hide($content['links']);
     hide($content['field_tags']);
+    kpr($content);
     print render($content);
   ?>
   <?php
