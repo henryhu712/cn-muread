@@ -14,6 +14,9 @@ body.node-type-ding-yue-hao .main-container.container .article-wrap h1 {
   margin: 0;
   padding: 0;
 }
+body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .article-cover {
+  text-align: center;
+}
 body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .article-cover img {
   margin: 0 auto;
 }
