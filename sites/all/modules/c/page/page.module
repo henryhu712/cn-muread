@@ -123,6 +123,12 @@ function page_preprocess_page(&$vars) {
     }
     $vars['term_name'] = $termName;
   }
+  else if ($arg0 == 'node' && is_numeric($arg1)) {
+    $node = node_load($arg1);
+    if ($node->type == 'ding_yue_hao') {
+      $vars['theme_hook_suggestions'][] = 'page_ding_yue_hao';
+    }
+  }
 }
 
 /**
@@ -135,6 +141,10 @@ function page_theme($existing, $type, $theme, $path) {
   return array(
     'template_c_all' => array(
       'template' => 'c_all',
+      'path' => $thePath,
+    ),
+    'page_ding_yue_hao' => array(
+      'template' => 'page_ding_yue_hao',
       'path' => $thePath,
     ),
     'template_paste' => array(
