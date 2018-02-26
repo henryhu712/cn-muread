@@ -36,7 +36,7 @@
                   <?php foreach ($item['categories'] as $category): ?>
                     <span class="term"><?php print $category; ?></span>
                   <?php endforeach; ?>
-                  <a href="<?php print $item['url_node']; ?>" target="_blank">
+                  <a href="<?php print $item['url_node']; ?>" target="_blank" class="article-comment">
                     <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 
                   </a>
                 </div>

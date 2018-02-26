@@ -42,6 +42,12 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-nam
   padding: 2px 10px;
   color: #78909c;
 }
+#muread-articles .main-content-wrapper > .row .item-detail .news-footer .article-comment {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  color: #c8c8c8;
+}
 #muread-articles #item-more9 {
   cursor: pointer;
   margin-bottom: 50px;
