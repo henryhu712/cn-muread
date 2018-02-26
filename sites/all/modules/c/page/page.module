@@ -127,7 +127,20 @@ function page_preprocess_page(&$vars) {
     $node = node_load($arg1);
     if ($node->type == 'ding_yue_hao') {
       $vars['theme_hook_suggestions'][] = 'page_ding_yue_hao';
+
+      $page_path = drupal_get_path("module", "page");
+      drupal_add_css($page_path . '/css/page_ding_yue_hao.css');
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function page_preprocess_node(&$node) {
+  if ($node->type == 'ding_yue_hao') {
+    $node['theme_hook_suggestions'][] = 'node_ding_yue_hao';
+    //$node['vars'] = get_vars_for_ding_yue_hao($node);
   }
 }
 
@@ -147,6 +160,10 @@ function page_theme($existing, $type, $theme, $path) {
       'template' => 'page_ding_yue_hao',
       'path' => $thePath,
     ),
+    'node_ding_yue_hao' => array(
+      'template' => 'node_ding_yue_hao',
+      'path' => $thePath,
+    ),
     'template_paste' => array(
       'template' => 'paste',
       'path' => $thePath,
@@ -154,4 +171,17 @@ function page_theme($existing, $type, $theme, $path) {
   );
 }
 
+/**
+ * Get vars for page ding yue hao
+ */
+function get_vars_for_ding_yue_hao($article) {
+  $vars = array();
+
+  $vars['published'] = '';
+  if (isset($article->field_published_date['und'])) {
+    $vars['published'] = date('Y-m-d', $article->field_published_date['und'][0]['value']);
+  }
+
+  return $vars;
+}
 
