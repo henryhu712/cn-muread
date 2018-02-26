@@ -102,7 +102,7 @@ function page_get_articles($term_id = '', $pager = 0) {
         'title' => $title,
         'image' => $image_html,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
-        'url_node' => drupal_get_path_alias('node/' . $article->nid),
+        'url_node' => drupal_get_path_alias('/node/' . $article->nid),
         'created' => $published,
         'author' => $author,
         'desc' => $desc,
