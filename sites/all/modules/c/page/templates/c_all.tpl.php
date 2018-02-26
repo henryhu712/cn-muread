@@ -6,13 +6,13 @@
           <?php foreach ($article_items as $key => $item): ?>
             <div class="row news-item-wrap<?php print $key % 2 === 0 ? " news-odd-row" : ""; ?>">
               <div class="col-xs-5">
-                <a href="<?php print $item['url_origin']; ?>" target="_blank">
+                <a href="<?php print $item['url_node']; ?>" target="_blank">
                   <?php print $item['image']; ?>
                 </a>
               </div>
               <div class="col-xs-7 item-detail">
                 <div class="news-title">
-                  <a href="<?php print $item['url_origin']; ?>" target="_blank">
+                  <a href="<?php print $item['url_node']; ?>" target="_blank">
                     <?php print $item['title']; ?>
                   </a>
                 </div>
