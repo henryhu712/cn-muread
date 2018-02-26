@@ -142,13 +142,13 @@ function page_preprocess_node(&$node) {
     $node['theme_hook_suggestions'][] = 'node_ding_yue_hao';
 
     $node['published'] = '';
-    if (isset($node['field_published_date']['und'])) {
-      $node['published'] = date('Y-m-d', $node['field_published_date']['und'][0]['value']);
+    if (!empty($node['field_published_date'])) {
+      $node['published'] = date('Y-m-d', $node['field_published_date'][0]['value']);
     }
 
     $node['author'] = '';
-    if (isset($node['field_author']['und'])) {
-      $node['author'] = $node['field_author']['und'][0]['value'];
+    if (!empty($node['field_author'])) {
+      $node['author'] = $node['field_author'][0]['value'];
     }
   }
 }
