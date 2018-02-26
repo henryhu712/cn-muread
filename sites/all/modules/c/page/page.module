@@ -140,7 +140,16 @@ function page_preprocess_page(&$vars) {
 function page_preprocess_node(&$node) {
   if ($node->type == 'ding_yue_hao') {
     $node['theme_hook_suggestions'][] = 'node_ding_yue_hao';
-    //$node['vars'] = get_vars_for_ding_yue_hao($node);
+
+    $node['published'] = '';
+    if (isset($node->field_published_date['und'])) {
+      $node['published'] = date('Y-m-d', $node->field_published_date['und'][0]['value']);
+    }
+
+    $node['author'] = '';
+    if (isset($article->field_author['und'])) {
+      $node['author'] = $node->field_author['und'][0]['value'];
+    }
   }
 }
 
@@ -171,17 +180,4 @@ function page_theme($existing, $type, $theme, $path) {
   );
 }
 
-/**
- * Get vars for page ding yue hao
- */
-function get_vars_for_ding_yue_hao($article) {
-  $vars = array();
-
-  $vars['published'] = '';
-  if (isset($article->field_published_date['und'])) {
-    $vars['published'] = date('Y-m-d', $article->field_published_date['und'][0]['value']);
-  }
-
-  return $vars;
-}
 
