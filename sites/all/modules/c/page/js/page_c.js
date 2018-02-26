@@ -20,9 +20,6 @@
                              newsArr[ix]['title'] +
                            '</a>' +
                          '</div>' +
-                         '<div class="news-author">' +
-                           '<span class="author-nickname">' + newsArr[ix]['author'] + '</span>' +
-                         '</div>' +
                          '<div class="news-footer">' +
                            newsArr[ix]['created'] +
                            (typeof newsArr[ix]['categories'] !== 'undefined' && newsArr[ix]['categories'].length > 0 ? '<span class="term">' + newsArr[ix]['categories'][0] + '</span>' : '') +

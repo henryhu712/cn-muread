@@ -24,9 +24,11 @@
                 <?php endif; ?>
 
                 <?php if (!empty($item['author'])): ?>
+                  <!--
                 <div class="news-author">
                   <span class="author-nickname"><?php print $item['author']; ?></span>
                 </div>
+-->
                 <?php endif; ?>
 
                 <div class="news-footer">
