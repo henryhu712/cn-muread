@@ -60,15 +60,34 @@ function home_content() {
         array('settings' => array('image_style' => '160-120')));
       $image_html = render($image_field);
 
+      $count = home_get_number_of_ding_yue_hao_in_a_term($term->tid);
+
       $vars['terms'][] = array(
         'name' => $term->name,
         'alias' => $alias,
         'image' => $image_html,
+        'count' => $count,
       );
     }
   }
 
   return theme('template_home', $vars);
+}
+
+/**
+ * Get number
+ */
+function home_get_number_of_ding_yue_hao_in_a_term($tid) {
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'ding_yue_hao')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->fieldCondition('field_categories', 'target_id', $tid);
+        ->count()
+        ->addMetaData('account', user_load(1));
+  $number = $query->execute();
+  return $number;
 }
 
 

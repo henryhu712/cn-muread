@@ -8,6 +8,7 @@
               <a href="/c/<?php print $term['alias']; ?>">
                 <?php print $term['image']; ?>
                 <?php print $term['name']; ?>
+               (<?php print $term['count']; ?>)
               </a>
             </div>
           </div>
