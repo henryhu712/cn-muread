@@ -4,7 +4,7 @@
  * @file
  */
 
-define('MAX_ITEMS_ONE_PAGE', 18);
+define('MAX_ITEMS_ONE_PAGE', 20);
 
 /**
  * Page c/all
