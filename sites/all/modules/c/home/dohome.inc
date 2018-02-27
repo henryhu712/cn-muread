@@ -50,9 +50,13 @@ function home_content() {
     $tids = array_keys($result2['taxonomy_term']);
     $terms = entity_load('taxonomy_term', $tids);
     foreach ($terms as $term) {
+      $alias = '';
+      if (isset($term->field_alias['und'])) {
+	      $alias = $term->field_alias['und'][0]['safe_value'];
+      }
       $vars['terms'][] = array(
         'name' => $term->name,
-        'alias' => $term->field_alias['und'][0]['safe_value'],
+        'alias' => $alias,
       );
     }
   }
