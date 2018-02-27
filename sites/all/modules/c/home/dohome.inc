@@ -83,7 +83,7 @@ function home_get_number_of_ding_yue_hao_in_a_term($tid) {
   $query->entityCondition('entity_type', 'node')
         ->entityCondition('bundle', 'ding_yue_hao')
         ->propertyCondition('status', NODE_PUBLISHED)
-        ->fieldCondition('field_categories', 'target_id', $tid);
+        ->fieldCondition('field_categories', 'target_id', $tid)
         ->count()
         ->addMetaData('account', user_load(1));
   $number = $query->execute();
