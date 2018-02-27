@@ -19,6 +19,10 @@ function page_paste() {
  * Create a node of ding yue hao
  */
 function page_create_ding_yue_hao($page, $url, $categories = '') {
+
+  $html = str_get_html($page);
+  watchdog('aa', '<pre>'.print_r($html, true).'</pre>');
+
   preg_match('/var msg_cdn_url = \"([^\"]*)\"/', $page, $m_url, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_title = \"([^\"]*)\"/', $page, $m_title, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_desc = \"([^\"]*)\"/', $page, $m_desc, PREG_OFFSET_CAPTURE);
