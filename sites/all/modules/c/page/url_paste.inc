@@ -23,7 +23,7 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   // Simplehtmldom
   $html_obj = new simple_html_dom();
   $html_obj->load($page);
-  kpr($html_obj);
+  //kpr($html_obj);
   //watchdog('aa', '<pre>'.print_r($html, true).'</pre>');
 
   // Parse string
