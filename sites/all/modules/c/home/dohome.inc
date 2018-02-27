@@ -14,11 +14,10 @@ function home_content() {
 
   $vars = array();
 
-/*
   $thepath = drupal_get_path("module", "home");
-  drupal_add_js($thepath . '/js/n_more.js');
-  drupal_add_css($thepath . '/css/news.css');
+  drupal_add_css($thepath . '/css/home.css');
 
+/*
   drupal_add_js(array('news_args' => array(
       'lang_code' => $language->language,
       'lang_prefix' => $language->prefix,
