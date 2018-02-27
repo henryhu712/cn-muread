@@ -50,13 +50,21 @@ function home_content() {
     $tids = array_keys($result2['taxonomy_term']);
     $terms = entity_load('taxonomy_term', $tids);
     foreach ($terms as $term) {
+
       $alias = '';
       if (isset($term->field_alias['und'])) {
 	      $alias = $term->field_alias['und'][0]['safe_value'];
       }
+
+      $uri = $term->field_image['und'][0]['uri'];
+      $image_field = field_view_field('taxonomy_term', $term, 'field_image',
+        array('settings' => array('image_style' => '160-120')));
+      $image_html = render($image_field);
+
       $vars['terms'][] = array(
         'name' => $term->name,
         'alias' => $alias,
+        'image' => $image_html,
       );
     }
   }

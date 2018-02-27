@@ -6,6 +6,7 @@
           <div class="col-xs-4">
             <div class="term-wrap">
               <a href="/c/<?php print $term['alias']; ?>">
+                <?php print $term['image']; ?>
                 <?php print $term['name']; ?>
               </a>
             </div>
