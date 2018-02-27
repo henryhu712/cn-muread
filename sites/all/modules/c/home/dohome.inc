@@ -44,9 +44,18 @@ function home_content() {
         ->entityCondition('bundle', 'category')
         ->addMetaData('account', user_load(1));
   $result2 = $quer2->execute();
-  kpr($result2);
 
-  //$vars['number_ding_yue_hao'] = $number;
+  $vars['terms'] = array();
+  if (!empty($result2['taxonomy_term'])) {
+    $tids = array_keys($result2['taxonomy_term']);
+    $terms = entity_load('taxonomy_term', $tids);
+    foreach ($terms as $term) {
+      $vars['terms'][] = array(
+        'name' => $term->name,
+        'alias' => $term->field_alias['und'][0]['safe_value'],
+      );
+    }
+  }
 
   return theme('template_home', $vars);
 }
