@@ -20,8 +20,13 @@ function page_paste() {
  */
 function page_create_ding_yue_hao($page, $url, $categories = '') {
 
-  $html = str_get_html($page);
-  watchdog('aa', '<pre>'.print_r($html, true).'</pre>');
+  // Simplehtmldom
+  $html_obj = new simple_html_dom();
+  $html_obj->load($page);
+  kpr($html_obj);
+  //watchdog('aa', '<pre>'.print_r($html, true).'</pre>');
+
+  // Parse string
 
   preg_match('/var msg_cdn_url = \"([^\"]*)\"/', $page, $m_url, PREG_OFFSET_CAPTURE);
   preg_match('/var msg_title = \"([^\"]*)\"/', $page, $m_title, PREG_OFFSET_CAPTURE);
