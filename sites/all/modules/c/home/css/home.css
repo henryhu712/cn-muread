@@ -1,3 +1,6 @@
-#block-system-main .container .term-wrap .field-label {
+#block-system-main .container .term-wrap-outer {
+  margin-bottom: 28px;
+}
+#block-system-main .container .term-wrap-outer .term-wrap .field-label {
   display: none;
 }
