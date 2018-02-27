@@ -26,6 +26,7 @@ function home_content() {
   )), 'setting');
 */
 
+  // Total
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
         ->entityCondition('bundle', 'ding_yue_hao')
@@ -36,6 +37,16 @@ function home_content() {
   $number = $query->execute();
 
   $vars['number_ding_yue_hao'] = $number;
+
+  // Categories
+  $quer2 = new EntityFieldQuery();
+  $quer2->entityCondition('entity_type', 'taxonomy_term')
+        ->entityCondition('bundle', 'category')
+        ->addMetaData('account', user_load(1));
+  $result2 = $quer2->execute();
+  kpr($result2);
+
+  //$vars['number_ding_yue_hao'] = $number;
 
   return theme('template_home', $vars);
 }
