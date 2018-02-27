@@ -79,6 +79,9 @@
       <?php if (!empty($site_name)): ?>
         <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
       <?php endif; ?>
+      <a class="btn btn-default add-link navbar-brand" href="/p" type="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 发布
+      </a>
 
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
