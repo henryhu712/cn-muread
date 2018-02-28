@@ -9,6 +9,10 @@ header#navbar .navbar-header a.add-link {
   height: 32px;
   margin-top: 9px;
 }
+footer.footer {
+  border-top: none;
+  margin-bottom: 0;
+}
 footer.footer nav.navbar {
   margin-bottom: 0;
 }
