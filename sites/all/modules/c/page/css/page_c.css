@@ -12,7 +12,7 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-nam
   font-size: 16px;
 }
 #muread-articles .main-content-wrapper > .row {
-  margin-bottom: 15px;
+  margin: 10px;
 }
 #muread-articles .main-content-wrapper > .row .field-name-field-image img {
   border-radius: 5px;
