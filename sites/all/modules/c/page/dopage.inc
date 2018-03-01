@@ -5,6 +5,7 @@
  */
 
 define('MAX_ITEMS_ONE_PAGE', 20);
+define('MAX_TITLE_LENGTH', 30);
 
 /**
  * Page c/all
@@ -69,8 +70,8 @@ function page_get_articles($term_id = '', $pager = 0) {
   if (isset($result['node'])) {
     $article_nodes = entity_load('node', array_keys($result['node']));
     foreach ($article_nodes as $article) {
-      if (mb_strlen($article->title) > 22) {
-        $title = mb_substr($article->title, 0, 22, 'UTF-8') . '...';
+      if (mb_strlen($article->title) > MAX_TITLE_LENGTH) {
+        $title = mb_substr($article->title, 0, MAX_TITLE_LENGTH, 'UTF-8') . '...';
       }
       else {
         $title = $article->title;
