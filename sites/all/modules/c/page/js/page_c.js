@@ -23,14 +23,17 @@
                          '<div class="news-footer">' +
                            newsArr[ix]['created'] +
                            (typeof newsArr[ix]['categories'] !== 'undefined' && newsArr[ix]['categories'].length > 0 ? '<span class="term">' + newsArr[ix]['categories'][0] + '</span>' : '') +
-                           '<a href="' + newsArr['url_node'] + '" target="_blank" class="article-comment">' +
-                             '<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>' +
-                           '</a>' +
                          '</div>' +
                        '</div>' +
                       '</div>';
       $wrapper.append(itemHTML);
     }
+
+    /*
+                           '<a href="' + newsArr['url_node'] + '" target="_blank" class="article-comment">' +
+                             '<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>' +
+                           '</a>' +
+                           */
 
     if (newsArr.length < 18) {
       $('#item-more9').hide();
