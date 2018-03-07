@@ -12,7 +12,7 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="row">
           <?php foreach ($terms as $term): ?>
-          <div class="col-xs-4 term-wrap-outer">
+          <div class="col-xs-3 term-wrap-outer">
             <div class="term-wrap">
               <a href="/c/<?php print $term['alias']; ?>">
                 <?php print $term['image']; ?>
