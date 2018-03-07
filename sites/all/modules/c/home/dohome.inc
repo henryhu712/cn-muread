@@ -57,7 +57,7 @@ function home_content() {
 
       $uri = $term->field_image['und'][0]['uri'];
       $image_field = field_view_field('taxonomy_term', $term, 'field_image',
-        array('settings' => array('image_style' => '180-180')));
+        array('settings' => array('image_style' => '110-110')));
       $image_html = render($image_field);
 
       $count = home_get_number_of_ding_yue_hao_in_a_term($term->tid);
