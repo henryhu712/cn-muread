@@ -24,16 +24,21 @@ footer.footer nav.navbar {
 footer.footer nav.navbar .container {
   line-height: 50px;
 }
-.navfooter a {
+.navfooter .nav-item {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+.navfooter .nav-item a {
   text-decoration: none;
 }
-.navfooter a img {
+.navfooter .nav-item a img {
   display: inline-block;
 }
-.navfooter a .navfooter-text {
+.navfooter .nav-item a .navfooter-text {
   display: inline-block;
   color: #000;
-  font-size: 16px;
+  font-size: 12px;
 }
 /*
 div.region-navigation {
