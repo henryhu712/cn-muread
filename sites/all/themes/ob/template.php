@@ -32,10 +32,13 @@ function ob_process_html(&$vars) {
  */
 function ob_preprocess_page(&$vars) {
 
+  /*
   $curr_path = current_path();
   global $language;
+   */
 
   $vars['ob_footer'] = _obserbot_footer();
+  $vars['nav_footer'] = _nav_footer();
 }
 
 
@@ -162,10 +165,13 @@ function ob_theme($existing, $type, $theme, $path) {
     'template' => 'footer',
     'path' => drupal_get_path('theme', 'ob') . '/templates',
   );
+  $theme['nav_footer'] = array(
+    'template' => 'nav_footer',
+    'path' => drupal_get_path('theme', 'ob') . '/templates',
+  );
 
   return $theme;
 }
-
 
 /**
  * Footer
@@ -178,6 +184,16 @@ function _obserbot_footer() {
   //$vars['fixed_bottom'] = '';
 
   return theme('ob_footer', $vars);
+}
+
+/**
+ * Footer navbar
+ */
+function _nav_footer() {
+
+  $vars = array();
+
+  return theme('nav_footer', $vars);
 }
 
 /*
