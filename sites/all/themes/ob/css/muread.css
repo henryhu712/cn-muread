@@ -27,7 +27,11 @@ footer.footer nav.navbar .container {
 .navfooter a {
   text-decoration: none;
 }
+.navfooter a img {
+  display: inline-block;
+}
 .navfooter a .navfooter-text {
+  display: inline-block;
   color: #000;
   font-size: 16px;
 }
