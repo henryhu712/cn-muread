@@ -92,3 +92,4 @@
 <?php endif; ?>
 
 <?php print $ob_footer; ?>
+<?php print $nav_footer; ?>
