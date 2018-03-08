@@ -4,13 +4,15 @@
     <div class="row">
       <div class="text-center">
         <span style="margin-right:30px;">
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ob_cate">
-            <?php print t('Categories'); ?>
-          </button>
+          <a href="/">
+            <img src="/sites/all/themes/ob/images/home.png" alt="home">
+            主页
+          </a>
         </span>
         <span>
-          <a href="/about">
-            <?php print t('About'); ?>
+          <a href="/p">
+            <img src="/sites/all/themes/ob/images/add.png" alt="post">
+            发布
           </a>
         </span>
       </div>
