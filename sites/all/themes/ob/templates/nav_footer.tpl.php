@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom visible-xs-block">
   <div class="container" style="margin-top:8px; padding-left:30px;">
     <div class="row">
       <div class="text-center">
