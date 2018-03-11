@@ -98,21 +98,6 @@ function page_get_articles($term_id = '', $pager = 0) {
         $author = $article->field_author['und'][0]['value'];
       }
 
-      $body_array = array();
-      if (isset($article->body['zh-hans'])) {
-        $html_obj = new simple_html_dom();
-        $html_obj->load($article->body['zh-hans'][0]['value']);
-        $length = 0;
-        foreach ($html_obj->find('p') as $p) {
-          $text = $p->plaintext;
-          $body_array[] = $text; 
-          $length += strlen($text);
-          if ($length > MAX_CONTENT) {
-            break;
-          }
-        }
-      }
-
       $categories = page_get_categories_array($article);
 
       $data['article_array'][] = array(
@@ -124,7 +109,6 @@ function page_get_articles($term_id = '', $pager = 0) {
         'author' => $author,
         'desc' => $desc,
         'categories' => $categories,
-        'body_array' => $body_array,
       );
     }
   }

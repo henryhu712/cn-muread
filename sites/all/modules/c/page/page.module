@@ -166,6 +166,22 @@ function page_preprocess_node(&$node) {
     if (!empty($node['field_desc'])) {
       $node['desc'] = $node['field_desc'][0]['safe_value'];
     }
+
+    $body_array = array();
+    if (isset($article->body['zh-hans'])) {
+      $html_obj = new simple_html_dom();
+      $html_obj->load($article->body['zh-hans'][0]['value']);
+      $length = 0;
+      foreach ($html_obj->find('p') as $p) {
+        $text = $p->plaintext;
+        $body_array[] = $text; 
+        $length += strlen($text);
+        if ($length > MAX_CONTENT) {
+          break;
+        }
+      }
+    }
+    $node['body_array'] = $body_array;
   }
 }
 
