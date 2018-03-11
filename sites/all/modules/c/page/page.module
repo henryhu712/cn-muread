@@ -168,9 +168,10 @@ function page_preprocess_node(&$node) {
     }
 
     $body_array = array();
-    if (isset($article->body['zh-hans'])) {
+    //  $length = 0;
+    if (isset($node['body'][0])) {
       $html_obj = new simple_html_dom();
-      $html_obj->load($article->body['zh-hans'][0]['value']);
+      $html_obj->load($node['body'][0]['value']);
       $length = 0;
       foreach ($html_obj->find('p') as $p) {
         $text = $p->plaintext;
