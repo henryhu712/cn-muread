@@ -52,6 +52,14 @@ function page_menu() {
     'file' => 'url_paste.inc'
   );
 
+  $rows['test'] = array(
+    'title' => 'test',
+    'page callback' => 'page_test',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'test.inc'
+  );
+
   return $rows;
 }
 
