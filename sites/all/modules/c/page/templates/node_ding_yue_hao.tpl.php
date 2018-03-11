@@ -14,7 +14,12 @@
     <?php print $desc; ?>
   </div>
   <div class="article-body">
-    <?php print render($content['body']); ?>
+    <?php //print render($content['body']); ?>
+    <?php foreach ($body_array as $p): ?>
+      <div>
+        <?php print $p; ?>
+      </div>
+    <?php endforeach; ?>
   </div>
   <?php
     // Only display the wrapper div if there are tags or links.

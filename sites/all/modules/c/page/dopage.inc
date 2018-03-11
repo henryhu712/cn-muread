@@ -6,6 +6,7 @@
 
 define('MAX_ITEMS_ONE_PAGE', 20);
 define('MAX_TITLE_LENGTH', 30);
+define('MAX_CONTENT', 500);
 
 /**
  * Page c/all
@@ -97,9 +98,19 @@ function page_get_articles($term_id = '', $pager = 0) {
         $author = $article->field_author['und'][0]['value'];
       }
 
-      $body = '';
+      $body_array = array();
       if (isset($article->body['zh-hans'])) {
-        $body = $article->body['zh-hans'][0]['value'];
+        $html_obj = new simple_html_dom();
+        $html_obj->load($article->body['zh-hans'][0]['value']);
+        $length = 0;
+        foreach ($html_obj->find('p') as $p) {
+          $text = $p->plaintext;
+          $body_array[] = $text; 
+          $length += strlen($text);
+          if ($length > MAX_CONTENT) {
+            break;
+          }
+        }
       }
 
       $categories = page_get_categories_array($article);
@@ -113,7 +124,7 @@ function page_get_articles($term_id = '', $pager = 0) {
         'author' => $author,
         'desc' => $desc,
         'categories' => $categories,
-        'body' => $body,
+        'body_array' => $body_array,
       );
     }
   }
