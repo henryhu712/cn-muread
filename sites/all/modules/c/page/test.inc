@@ -5,7 +5,13 @@
  */
 function page_test() {
 
+  global $user;
+  if ($user->uid !== 1) {
+    return 'error';
+  }
+
   $out = 'kk';
+  return $out;
 
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
