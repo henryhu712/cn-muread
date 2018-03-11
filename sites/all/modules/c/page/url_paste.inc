@@ -23,7 +23,8 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   // Simplehtmldom
   $html_obj = new simple_html_dom();
   $html_obj->load($page);
-  //kpr($html_obj);
+  $content = $html_obj->find('div#js_content', 0)->plaintext;
+  kpr($content);
   //watchdog('aa', '<pre>'.print_r($html, true).'</pre>');
 
   // Parse string
@@ -45,7 +46,7 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   $node->type = 'ding_yue_hao';
   node_object_prepare($node);
 
-  $node->language = 'en';
+  $node->language = 'zh-hans';
   $node->uid = 1;
   $node->status = 1;
   $node->field_url_origin[LANGUAGE_NONE][]['value'] = $url;
