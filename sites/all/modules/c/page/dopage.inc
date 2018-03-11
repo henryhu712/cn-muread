@@ -97,6 +97,11 @@ function page_get_articles($term_id = '', $pager = 0) {
         $author = $article->field_author['und'][0]['value'];
       }
 
+      $body = '';
+      if (isset($article->body['zh-hans'])) {
+        $body = $article->body['zh-hans'][0]['value'];
+      }
+
       $categories = page_get_categories_array($article);
 
       $data['article_array'][] = array(
@@ -108,6 +113,7 @@ function page_get_articles($term_id = '', $pager = 0) {
         'author' => $author,
         'desc' => $desc,
         'categories' => $categories,
+        'body' => $body,
       );
     }
   }

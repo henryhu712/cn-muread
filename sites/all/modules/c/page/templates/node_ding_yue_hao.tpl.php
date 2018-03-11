@@ -13,6 +13,9 @@
   <div class="article-desc">
     <?php print $desc; ?>
   </div>
+  <div class="article-body">
+    <?php print $body; ?>
+  </div>
   <?php
     // Only display the wrapper div if there are tags or links.
     $field_tags = render($content['field_tags']);
