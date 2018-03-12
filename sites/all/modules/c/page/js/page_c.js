@@ -10,19 +10,19 @@
       var odd = ix % 2 === 0 ? " news-odd-row" : "";
       var itemHTML = '<div class="row news-item-wrap' + odd + '">' +
                        '<div class="col-xs-5">' +
-                         '<a href="' + newsArr[ix]['url_origin'] + '" target="_blank">' +
+                         '<a href="' + newsArr[ix]['url_node'] + '" target="_blank">' +
                            newsArr[ix]['image'] +
                          '</a>' +
                        '</div>' +
                        '<div class="col-xs-7 item-detail">' +
                          '<div class="news-title">' +
-                           '<a href="' + newsArr[ix]['url_origin'] + '" target="_blank">' +
+                           '<a href="' + newsArr[ix]['url_node'] + '" target="_blank">' +
                              newsArr[ix]['title'] +
                            '</a>' +
                          '</div>' +
                          '<div class="news-footer">' +
                            newsArr[ix]['created'] +
-                           (typeof newsArr[ix]['categories'] !== 'undefined' && newsArr[ix]['categories'].length > 0 ? '<span class="term">' + newsArr[ix]['categories'][0] + '</span>' : '') +
+                           //(typeof newsArr[ix]['categories'] !== 'undefined' && newsArr[ix]['categories'].length > 0 ? '<span class="term">' + newsArr[ix]['categories'][0] + '</span>' : '') +
                          '</div>' +
                        '</div>' +
                       '</div>';
