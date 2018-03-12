@@ -14,6 +14,9 @@
     <?php //print render($content['body']); ?>
     <?php print $body_html; ?>
   </div>
+  <div class="article-origin">
+    <a href="<?php print $url_origin; ?>" type="button" class="btn btn-default">阅读原文</a>
+  </div>
   <?php
     // Only display the wrapper div if there are tags or links.
     $field_tags = render($content['field_tags']);

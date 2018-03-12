@@ -181,8 +181,11 @@ function page_preprocess_node(&$node) {
         $length += strlen($p);
         $body_html .= '<div class="para">' . $p . '</div>';
       }
+      $body_html .= '<div class="para">......</div>';
     }
     $node['body_html'] = $body_html;
+
+    $node['url_origin'] = $node['field_url_origin'][0]['value'];
   }
 }
 
