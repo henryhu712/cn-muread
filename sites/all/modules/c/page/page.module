@@ -181,8 +181,13 @@ function page_preprocess_node(&$node) {
       $length = 0;
       $ps = array();
       page_find_p_elements($html, $length, $ps);
-      kpr($ps);
-      kpr($length);
+      $body_html = '';
+      $length = 0;
+      foreach ($ps as $p) {
+        if ($length > MAX_CONTENT) break;
+        $length += strlen($p);
+        $body_html .= '<div class="para">' . $p . '</div>';
+      }
 
       /*
       foreach ($html_obj->find('p') as $p) {
@@ -195,7 +200,7 @@ function page_preprocess_node(&$node) {
       }
        */
     }
-    $node['body_array'] = $body_array;
+    $node['body_html'] = $body_html;
   }
 }
 
