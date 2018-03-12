@@ -6,7 +6,6 @@
 
 define('MAX_ITEMS_ONE_PAGE', 20);
 define('MAX_TITLE_LENGTH', 30);
-define('MAX_CONTENT', 500);
 
 /**
  * Page c/all

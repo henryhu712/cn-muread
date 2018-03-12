@@ -4,6 +4,8 @@
  * @file
  */
 
+define('MAX_CONTENT', 500);
+
 /**
  * Implements hook_menu().
  */
@@ -170,8 +172,16 @@ function page_preprocess_node(&$node) {
     $body_array = array();
     //  $length = 0;
     if (isset($node['body'][0])) {
+      /*
       $html_obj = new simple_html_dom();
       $html_obj->load($node['body'][0]['value']);
+      foreach ($html_obj->find('p') as $p) {
+       */
+      $html = $node['body'][0]['value'];
+      preg_match('/<p[ >][^<]*<\/p>/', $html, $results);
+      kpr($results);
+
+      /*
       $length = 0;
       foreach ($html_obj->find('p') as $p) {
         $text = $p->plaintext;
@@ -181,6 +191,7 @@ function page_preprocess_node(&$node) {
           break;
         }
       }
+       */
     }
     $node['body_array'] = $body_array;
   }
