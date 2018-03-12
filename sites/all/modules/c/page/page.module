@@ -180,8 +180,8 @@ function page_preprocess_node(&$node) {
       $html = $node['body'][0]['value'];
       $length = 0;
       $ps = array();
-      $results = page_find_p_elements($html, $length, $ps);
-      kpr($results);
+      page_find_p_elements($html, $length, $ps);
+      kpr($ps);
 
       /*
       foreach ($html_obj->find('p') as $p) {
@@ -228,12 +228,26 @@ function page_theme($existing, $type, $theme, $path) {
 /**
  * Find p
  */
-function page_find_p_elements($html, $length, $ps) {
+function page_find_p_elements($html, &$length, &$ps) {
+
+  if ($length > MAX_CONTENT) {
+    return;
+  }
+
   $obj = new simple_html_dom();
   $obj->load($html);
   foreach ($obj->find("*") as $element) {
-    kpr($element->tag);
+    if ($element->tag == 'p') {
+      $text = $element->plaintext;
+      $len = strlen($text);
+      if ($len > 0) {
+        $ps[] = $text;
+        $length += $len;
+      }
+    }
+    else {
+      page_find_p_elements($element->innertext, $length, $ps);
+    }
   }
-  return $ps;
 }
 
