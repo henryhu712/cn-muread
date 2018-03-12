@@ -29,3 +29,6 @@ body.node-type-ding-yue-hao .main-container.container .article-wrap article.node
     width: 100%;
   }
 }
+body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .article-body > div {
+  margin: 10px 0;
+}
