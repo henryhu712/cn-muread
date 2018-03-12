@@ -24,9 +24,6 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   $html_obj = new simple_html_dom();
   $html_obj->load($page);
   $content = $html_obj->find('div#js_content', 0)->innertext;
-  //$content = $html_obj->find('div#js_content', 0)->plaintext;
-  //kpr($content);
-  //watchdog('aa', '<pre>'.print_r($content, true).'</pre>');
 
   // Parse string
 
@@ -86,8 +83,26 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
     $node->field_categories[LANGUAGE_NONE][]['target_id'] = (int)$categories;
   }
 
-  $node = node_submit($node);
-  node_save($node);
+  try {
+    $node = node_submit($node);
+    node_save($node);
+  } catch ( Exception $e ) {
+    $length = 0;
+    $ps = array();
+    page_find_p_elements($content, $length, $ps);
+
+    $length = 0;
+    $body_html = '';
+    foreach ($ps as $p) {
+      if ($length > MAX_CONTENT) break;
+      $length += strlen($p);
+      $body_html .= '<p>' . $p . '</p>';
+    }
+
+    $node->body['zh-hans'][0]['value'] = $body_html;
+    $node->body['zh-hans'][0]['format'] = 'full_html';
+    node_save($node);
+  }
 }
 
 /**
