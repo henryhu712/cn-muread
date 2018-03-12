@@ -10,9 +10,6 @@
   <div class="article-cover">
     <img src="<?php print $image_url; ?>" alt="cover">
   </div>
-  <div class="article-desc">
-    <?php print $desc; ?>
-  </div>
   <div class="article-body">
     <?php //print render($content['body']); ?>
     <?php print $body_html; ?>
