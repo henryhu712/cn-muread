@@ -11,7 +11,7 @@ function page_test() {
   }
 
   $out = 'kk';
-  return $out;
+  //return $out;
 
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
@@ -20,11 +20,19 @@ function page_test() {
   $result = $query->execute();
   if (isset($result['node'])) {
     $nodes = entity_load('node', array_keys($result['node']));
+    $html_obj = new simple_html_dom();
     foreach ($nodes as $node) {
-      $node->language = 'zh-hans';
+      //$node->language = 'zh-hans';
+
+      $url = $node->field_url_origin[LANGUAGE_NONE][0]['value'];
+      $html_obj->load($url);
+      $content = $html_obj->find('div#js_content', 0)->innertext;
+      $node->body['zh-hans'][0]['value'] = $content;
+      $node->body['zh-hans'][0]['format'] = 'full_html';
       node_save($node);
-      //kpr($node->title);
+      $html_obj->clear();
     }
+    unset($html_obj);
   }
 
   return $out;
