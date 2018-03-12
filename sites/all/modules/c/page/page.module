@@ -182,6 +182,7 @@ function page_preprocess_node(&$node) {
       $ps = array();
       page_find_p_elements($html, $length, $ps);
       kpr($ps);
+      kpr($length);
 
       /*
       foreach ($html_obj->find('p') as $p) {
@@ -238,7 +239,7 @@ function page_find_p_elements($html, &$length, &$ps) {
   $obj->load($html);
   foreach ($obj->find("*") as $element) {
     if ($element->tag == 'p') {
-      $text = $element->plaintext;
+      $text = trim($element->plaintext);
       $len = strlen($text);
       if ($len > 0) {
         $ps[] = $text;
