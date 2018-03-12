@@ -31,4 +31,9 @@ body.node-type-ding-yue-hao .main-container.container .article-wrap article.node
 }
 body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .article-body > div {
   margin: 10px 0;
+  font-size: 18px;
+  color: #3e3e3e;
+}
+body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .article-origin {
+  text-align: center;
 }
