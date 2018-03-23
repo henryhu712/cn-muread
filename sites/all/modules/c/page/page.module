@@ -192,7 +192,7 @@ function page_preprocess_node(&$node) {
       $node['desc'] = '';
       $node['body_html'] = '';
 
-      $uri = $node->field_content_image['und'][0]['uri'];
+      $uri = $node['field_content_image'][0]['uri'];
       $image_field = field_view_field('node', $node, 'field_image',
         array('settings' => array('image_style' => '375-1800')));
       $node['content_image'] = render($image_field);
