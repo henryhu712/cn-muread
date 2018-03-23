@@ -14,6 +14,15 @@ body.node-type-ding-yue-hao .main-container.container .article-wrap h1 {
   margin: 0;
   padding: 0;
 }
+body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .content-image {
+  margin-bottom: 40px;
+}
+body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .content-image .field-label {
+  display: none;
+}
+body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao .content-image img {
+  margin: 0 auto;
+}
 body.node-type-ding-yue-hao .main-container.container .article-wrap article.node-ding-yue-hao header {
   margin: 20px 0;
 }
