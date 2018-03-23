@@ -35,7 +35,7 @@ function page_menu() {
     'page callback' => 'page_wechat_port',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
-    'file' => 'dopage.inc'
+    'file' => 'wechat.inc'
   );
 
   $rows['wechat_menu_config'] = array(
@@ -43,7 +43,7 @@ function page_menu() {
     'page callback' => 'page_wechat_menu_config',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
-    'file' => 'dopage.inc'
+    'file' => 'wechat.inc'
   );
 
   $rows['p'] = array(
