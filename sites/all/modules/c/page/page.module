@@ -161,29 +161,42 @@ function page_preprocess_node(&$node) {
       $node['author'] = $node['field_author'][0]['value'];
     }
 
-    $uri = $node['field_image'][0]['uri'];
-    $node['image_url'] = file_create_url($uri);
+    if (empty($node['field_content_image'])) {
+      $uri = $node['field_image'][0]['uri'];
+      $node['image_url'] = file_create_url($uri);
 
-    $node['desc'] = '';
-    if (!empty($node['field_desc'])) {
-      $node['desc'] = $node['field_desc'][0]['safe_value'];
-    }
-
-    $body_html = '';
-    if (isset($node['body'][0])) {
-      $html = $node['body'][0]['value'];
-      $length = 0;
-      $ps = array();
-      page_find_p_elements($html, $length, $ps);
-      $length = 0;
-      foreach ($ps as $p) {
-        if ($length > MAX_CONTENT) break;
-        $length += strlen($p);
-        $body_html .= '<div class="para">' . $p . '</div>';
+      $node['desc'] = '';
+      if (!empty($node['field_desc'])) {
+        $node['desc'] = $node['field_desc'][0]['safe_value'];
       }
-      $body_html .= '<div class="para">......</div>';
+
+      $body_html = '';
+      if (isset($node['body'][0])) {
+        $html = $node['body'][0]['value'];
+        $length = 0;
+        $ps = array();
+        page_find_p_elements($html, $length, $ps);
+        $length = 0;
+        foreach ($ps as $p) {
+          if ($length > MAX_CONTENT) break;
+          $length += strlen($p);
+          $body_html .= '<div class="para">' . $p . '</div>';
+        }
+        $body_html .= '<div class="para">......</div>';
+      }
+      $node['body_html'] = $body_html;
+      $node['content_image'] = '';
     }
-    $node['body_html'] = $body_html;
+    else { // Content image existing
+      $node['image_url'] = '';
+      $node['desc'] = '';
+      $node['body_html'] = '';
+
+      $uri = $node->field_content_image['und'][0]['uri'];
+      $image_field = field_view_field('node', $node, 'field_image',
+        array('settings' => array('image_style' => '375-1800')));
+      $node['content_image'] = render($image_field);
+    }
 
     $node['url_origin'] = $node['field_url_origin'][0]['value'];
   }
