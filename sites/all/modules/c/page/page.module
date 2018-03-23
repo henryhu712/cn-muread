@@ -140,6 +140,11 @@ function page_preprocess_page(&$vars) {
 
       $page_path = drupal_get_path("module", "page");
       drupal_add_css($page_path . '/css/page_ding_yue_hao.css');
+
+      $vars['contentImageExists'] = TRUE;
+      if (empty($node->field_content_image)) {
+        $vars['contentImageExists'] = FALSE;
+      }
     }
   }
 }
@@ -161,7 +166,9 @@ function page_preprocess_node(&$node) {
       $node['author'] = $node['field_author'][0]['value'];
     }
 
+    $node['contentImageExists'] = TRUE;
     if (empty($node['field_content_image'])) {
+      $node['contentImageExists'] = FALSE;
       $uri = $node['field_image'][0]['uri'];
       $node['image_url'] = file_create_url($uri);
 
