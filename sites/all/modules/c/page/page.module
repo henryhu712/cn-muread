@@ -85,7 +85,14 @@ function page_submit_5364(&$form, &$form_state) {
   $url = $form_state['input']['submitted']['url'];
   $categories = $form_state['input']['submitted']['categories'];
   if ($page = file_get_contents($url)) {
-    page_create_ding_yue_hao($page, $url, $categories);
+    $res = page_create_ding_yue_hao($page, $url, $categories);
+    if ($res['error'] === 0) {
+      $msg = 'success';
+    }
+    else {
+      $msg = 'Error ' . $res['error'];
+    }
+    drupal_set_message($msg);
   }
 }
 
