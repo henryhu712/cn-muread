@@ -94,7 +94,7 @@ function page_wechat_port() {
           module_load_include('inc', 'page', 'url_paste');
           $res = page_create_ding_yue_hao($page, $url);
           if ($res['error'] === 0 ) {
-            $answer = "成功创建！ https://cn.muread.com/c/all";
+            $answer = "成功创建！ " . $res['url'];
           }
           else {
             $answer = 'Error ' . $res['error'] . ' - ' . $res['info'];
