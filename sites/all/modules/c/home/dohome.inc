@@ -139,8 +139,6 @@ function home_get_newest() {
         $author = $article->field_author['und'][0]['value'];
       }
 
-      $categories = page_get_categories_array($article);
-
       $data['article_array'][] = array(
         'title' => $title,
         'image' => $image_html,
@@ -149,7 +147,6 @@ function home_get_newest() {
         'created' => $published,
         'author' => $author,
         'desc' => $desc,
-        'categories' => $categories,
       );
     }
   }
