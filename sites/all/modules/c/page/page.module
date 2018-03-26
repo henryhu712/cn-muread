@@ -88,6 +88,7 @@ function page_submit_5364(&$form, &$form_state) {
     $res = page_create_ding_yue_hao($page, $url, $categories);
     if ($res['error'] === 0) {
       $msg = 'success';
+      drupal_goto($res['url']);
     }
     else {
       $msg = 'Error ' . $res['error'];

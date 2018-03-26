@@ -20,7 +20,6 @@ function page_paste() {
  */
 function page_create_ding_yue_hao($page, $url, $categories = '') {
 
-  return array('error' => 2, 'info' => 'Error');
   //$isUrlExisting = page_check_url_duplicate($url);
 
   // Simplehtmldom
@@ -104,7 +103,8 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
     $node->body['zh-hans'][0]['value'] = $body_html;
     $node->body['zh-hans'][0]['format'] = 'full_html';
     node_save($node);
-    return array('error' => 0, 'info' => 'success');
+    $new_url = drupal_get_path_alias('node/' . $node->nid);
+    return array('error' => 0, 'info' => 'success', 'nid' => $node->nid, 'url' => $new_url);
   }
   return array('error' => 2, 'info' => 'Error');
 }
