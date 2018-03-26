@@ -20,6 +20,9 @@ function page_paste() {
  */
 function page_create_ding_yue_hao($page, $url, $categories = '') {
 
+  return array('error' => 2, 'info' => 'Error');
+  //$isUrlExisting = page_check_url_duplicate($url);
+
   // Simplehtmldom
   $html_obj = new simple_html_dom();
   $html_obj->load($page);
@@ -34,8 +37,7 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   preg_match('/var nickname = \"([^\"]*)\"/', $page, $m_nickname, PREG_OFFSET_CAPTURE);
 
   if (!$m_url[1][0] || !$m_url[1][0]) {
-    echo 'Error';
-    return;
+    return array('error' => 1, 'info' => 'No url found');
   }
 
   $node = new stdClass();
@@ -102,7 +104,9 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
     $node->body['zh-hans'][0]['value'] = $body_html;
     $node->body['zh-hans'][0]['format'] = 'full_html';
     node_save($node);
+    return array('error' => 0, 'info' => 'success');
   }
+  return array('error' => 2, 'info' => 'Error');
 }
 
 /**
@@ -129,4 +133,23 @@ function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzAB
   return $str;
 }
 
+/**
+ * Check if url duplicate.
+ */
+function page_check_url_duplicate($url) {
+
+  $isExisting = FALSE;
+
+  $url = trim($url);
+
+  /*
+  $q = new EntityFieldQuery();
+  $q->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'ding_yue_hao')
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->fieldCondition('field_url
+
+  return $isExisting;
+   */
+}
 
