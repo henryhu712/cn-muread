@@ -139,7 +139,7 @@ function home_get_newest() {
         $author = $article->field_author['und'][0]['value'];
       }
 
-      $data['article_array'][] = array(
+      $data[] = array(
         'title' => $title,
         'image' => $image_html,
         'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
@@ -150,6 +150,7 @@ function home_get_newest() {
       );
     }
   }
+//  ddl($data);
   return $data;
 }
 
