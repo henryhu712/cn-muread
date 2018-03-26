@@ -71,6 +71,8 @@ function home_content() {
     }
   }
 
+  $vars['newest_articles'] = home_get_newest();
+
   return theme('template_home', $vars);
 }
 
@@ -88,6 +90,70 @@ function home_get_number_of_ding_yue_hao_in_a_term($tid) {
         ->addMetaData('account', user_load(1));
   $number = $query->execute();
   return $number;
+}
+
+
+/**
+ * Retrieve newest articles.
+ */
+function home_get_newest() {
+
+  $data = array();
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'ding_yue_hao')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->propertyOrderBy('created', 'DESC')
+        ->range(0, 4)
+        ->addMetaData('account', user_load(1));
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    $article_nodes = entity_load('node', array_keys($result['node']));
+    foreach ($article_nodes as $article) {
+      if (mb_strlen($article->title) > MAX_TITLE_LENGTH) {
+        $title = mb_substr($article->title, 0, MAX_TITLE_LENGTH, 'UTF-8') . '...';
+      }
+      else {
+        $title = $article->title;
+      }
+
+      $uri = $article->field_image['und'][0]['uri'];
+      $image_field = field_view_field('node', $article, 'field_image',
+        array('settings' => array('image_style' => '160-120')));
+      $image_html = render($image_field);
+
+      $published = '';
+      if (isset($article->field_published_date['und'])) {
+        $published = date('Y-m-d', $article->field_published_date['und'][0]['value']);
+      }
+
+      $desc = '';
+      if (isset($article->field_desc['und'])) {
+        $desc = $article->field_desc['und'][0]['value'];
+      }
+
+      $author = '';
+      if (isset($article->field_author['und'])) {
+        $author = $article->field_author['und'][0]['value'];
+      }
+
+      $categories = page_get_categories_array($article);
+
+      $data['article_array'][] = array(
+        'title' => $title,
+        'image' => $image_html,
+        'url_origin' => $article->field_url_origin['und'][0]['safe_value'],
+        'url_node' => '/' . drupal_get_path_alias('node/' . $article->nid),
+        'created' => $published,
+        'author' => $author,
+        'desc' => $desc,
+        'categories' => $categories,
+      );
+    }
+  }
+  return $data;
 }
 
 
