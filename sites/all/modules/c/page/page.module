@@ -5,6 +5,7 @@
  */
 
 define('MAX_CONTENT', 500);
+define('MAX_TITLE_LENGTH', 50);
 
 /**
  * Implements hook_menu().
