@@ -87,6 +87,8 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   try {
     $node = node_submit($node);
     node_save($node);
+    $new_url = drupal_get_path_alias('node/' . $node->nid);
+    return array('error' => 0, 'info' => 'success', 'nid' => $node->nid, 'url' => $new_url);
   } catch ( Exception $e ) {
     $length = 0;
     $ps = array();
