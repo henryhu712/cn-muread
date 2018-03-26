@@ -1,3 +1,6 @@
+#block-system-main .container .latest-content .field-label {
+  display: none;
+}
 #block-system-main .container .all-items {
   font-size: 20px;
   line-height: 74px;

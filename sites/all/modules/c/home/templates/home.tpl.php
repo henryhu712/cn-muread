@@ -1,6 +1,6 @@
   <div class="container">
 
-    <div class="row home-content">
+    <div class="row latest-content">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="main-content-wrapper">
           <?php foreach ($newest_articles as $key => $item): ?>

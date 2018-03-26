@@ -150,7 +150,6 @@ function home_get_newest() {
       );
     }
   }
-//  ddl($data);
   return $data;
 }
 
