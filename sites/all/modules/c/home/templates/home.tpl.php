@@ -18,16 +18,15 @@
               </div>
               <div class="col-xs-7 item-detail">
 
-                <div class="news-footer">
-                  <?php print $item['author']; ?>
-                </div>
-
                 <div class="news-title">
                   <a href="<?php print $item['url_node']; ?>" target="_blank">
                     <?php print $item['title']; ?>
                   </a>
                 </div>
 
+                <div class="news-footer">
+                  <?php print $item['author']; ?>
+                </div>
               </div>
             </div>
           <?php endforeach; ?>
