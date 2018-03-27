@@ -17,21 +17,17 @@
                 </a>
               </div>
               <div class="col-xs-7 item-detail">
+
+                <div class="news-footer">
+                  <?php print $item['author']; ?>
+                </div>
+
                 <div class="news-title">
                   <a href="<?php print $item['url_node']; ?>" target="_blank">
                     <?php print $item['title']; ?>
                   </a>
                 </div>
 
-                <?php if (!empty($item['desc'])): ?>
-                <div class="news-desc hidden">
-                  <span class="desc"><?php print $item['desc']; ?></span>
-                </div>
-                <?php endif; ?>
-
-                <div class="news-footer">
-                  <?php print $item['created']; ?>
-                </div>
               </div>
             </div>
           <?php endforeach; ?>
