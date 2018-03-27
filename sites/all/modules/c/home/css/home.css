@@ -1,12 +1,8 @@
-#block-system-main .container .latest-content {
-  /*
-      .field-label {
-        display: none;
-      }
-      */
-}
 #block-system-main .container .latest-content .main-content-wrapper > .row {
   margin: 40px 10px;
+}
+#block-system-main .container .latest-content .main-content-wrapper > .row .field-name-field-image .field-label {
+  display: none;
 }
 #block-system-main .container .latest-content .main-content-wrapper > .row .field-name-field-image img {
   border-radius: 5px;

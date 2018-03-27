@@ -1,5 +1,10 @@
   <div class="container">
 
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        最新文章：
+      </div>
+    </div>
     <div class="row latest-content">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="main-content-wrapper">
@@ -33,6 +38,11 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        文章分类：
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 all-items">
         <div class="items-container text-center">
