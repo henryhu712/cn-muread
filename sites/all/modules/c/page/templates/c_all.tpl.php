@@ -1,5 +1,15 @@
 <div id="muread-articles">
 
+    <div class="row breadcrumb-wrap">
+      <span class="link-home"><a href="/">首页</a></span> >>
+      <span class="link-all"><a href="/c/all">全部文章</a></span>
+      <?php if (!empty($breadcrumb_2)): ?>
+        >> <span class="link-cate"><a href="<?php print $breadcrumb_2_path; ?>">
+             <?php print $breadcrumb_2; ?>
+           </a></span>
+      <?php endif; ?>
+    </div>
+
     <div class="row home-content">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="main-content-wrapper">

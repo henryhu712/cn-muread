@@ -23,6 +23,8 @@ function page_c($term_alias = '') {
   )), 'setting');
 
   $vars = array(
+    'breadcrumb_2' => $term_alias == 'all' ? '' : $term_info['name'],
+    'breadcrumb_2_path' => $term_alias == 'all' ? '' : '/c/' . $term_alias,
     'article_items' => $data['article_array'],
     'moreExisting' => count($data['article_array']) < MAX_ITEMS_ONE_PAGE ? FALSE : TRUE,
   );
