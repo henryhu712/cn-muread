@@ -1,10 +1,10 @@
   <div class="container">
-
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="lead">阅读、分享、评论你喜欢的公众号文章</div>
       </div>
     </div>
+  </div>
 
     <div class="row latest-content">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -65,6 +65,5 @@
         </div>
       </div>
     </div>
-  </div>
 
 
