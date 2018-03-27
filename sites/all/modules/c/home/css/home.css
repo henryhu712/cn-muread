@@ -1,3 +1,7 @@
+#block-system-main .container .lead {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
 #block-system-main .container .latest-content .main-content-wrapper > .row {
   margin: 40px 10px;
 }
@@ -12,7 +16,8 @@
   padding-left: 0;
 }
 #block-system-main .container .latest-content .main-content-wrapper > .row .item-detail .news-title {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 400;
   margin-bottom: 8px;
 }
 #block-system-main .container .latest-content .main-content-wrapper > .row .item-detail .news-title a {

@@ -22,7 +22,8 @@ body.page-c .navbar > .container-fluid .navbar-header .navbar-brand.category-nam
   padding-left: 0;
 }
 #muread-articles .main-content-wrapper > .row .item-detail .news-title {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 400;
   margin-bottom: 8px;
 }
 #muread-articles .main-content-wrapper > .row .item-detail .news-title a {
