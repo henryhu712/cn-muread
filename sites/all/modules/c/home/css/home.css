@@ -1,6 +1,7 @@
 #block-system-main .container .lead {
   margin-top: 40px;
   margin-bottom: 0;
+  font-size: 18px;
 }
 #block-system-main .latest-content .main-content-wrapper > .row {
   margin: 40px 10px;
@@ -42,9 +43,6 @@
   float: right;
   margin-right: 10px;
   color: #c8c8c8;
-}
-#block-system-main .category-label {
-  font-weight: 300;
 }
 #block-system-main .all-items {
   font-size: 20px;

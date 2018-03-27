@@ -44,11 +44,6 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 category-label">
-        文章分类：
-      </div>
-    </div>
-    <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="row">
           <?php foreach ($terms as $term): ?>
