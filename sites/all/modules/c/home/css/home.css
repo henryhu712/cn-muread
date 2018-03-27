@@ -38,6 +38,9 @@
   margin-right: 10px;
   color: #c8c8c8;
 }
+#block-system-main .container .category-label {
+  font-weight: 300;
+}
 #block-system-main .container .all-items {
   font-size: 20px;
   line-height: 74px;

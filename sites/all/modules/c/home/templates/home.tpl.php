@@ -1,12 +1,11 @@
   <div class="container">
 
-    <div class="lead">阅读、分享、评论你喜欢的公众号文章</div>
-
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        最新文章：
+        <div class="lead">阅读、分享、评论你喜欢的公众号文章</div>
       </div>
     </div>
+
     <div class="row latest-content">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="main-content-wrapper">
@@ -36,22 +35,22 @@
               </div>
             </div>
           <?php endforeach; ?>
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 all-items">
+              <div class="items-container text-center">
+                <a href="/c/all">
+                  更多文章 (<?php print $number_ding_yue_hao; ?>)
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 category-label">
         文章分类：
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 all-items">
-        <div class="items-container text-center">
-          <a href="/c/all">
-            全部文章 (<?php print $number_ding_yue_hao; ?>)
-          </a>
-        </div>
       </div>
     </div>
     <div class="row">
