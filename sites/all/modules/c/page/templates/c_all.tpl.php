@@ -2,10 +2,10 @@
 
     <div class="row breadcrumb-wrap">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <span class="link-home"><a href="/">首页</a></span> >>
+        <span class="link-home"><a href="/">首页</a></span> &gt;
         <span class="link-all"><a href="/c/all">全部文章</a></span>
         <?php if (!empty($breadcrumb_2)): ?>
-          >> <span class="link-cate"><a href="<?php print $breadcrumb_2_path; ?>">
+          &gt; <span class="link-cate"><a href="<?php print $breadcrumb_2_path; ?>">
                <?php print $breadcrumb_2; ?>
              </a></span>
         <?php endif; ?>
@@ -29,27 +29,10 @@
                   </a>
                 </div>
 
-                <?php if (!empty($item['desc'])): ?>
-                <div class="news-desc hidden">
-                  <span class="desc"><?php print $item['desc']; ?></span>
-                </div>
-                <?php endif; ?>
-
-                <?php if (!empty($item['author'])): ?>
-                  <!--
-                <div class="news-author">
-                  <span class="author-nickname"><?php print $item['author']; ?></span>
-                </div>
--->
-                <?php endif; ?>
-
                 <div class="news-footer">
-                  <?php print $item['created']; ?>
-    <!--
-                  <?php foreach ($item['categories'] as $category): ?>
-                    <span class="term"><?php print $category; ?></span>
-                  <?php endforeach; ?>
-    -->
+                  <?php if (!empty($item['author'])): ?>
+                    <?php print $item['author']; ?>
+                  <?php endif; ?>
     <!--
                   <a href="<?php print $item['url_node']; ?>" target="_blank" class="article-comment">
                     <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 
@@ -62,6 +45,7 @@
         </div>
       </div>
     </div>
+
     <?php if ($moreExisting): ?>
     <div id="item-more9" class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">

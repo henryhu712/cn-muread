@@ -1,4 +1,4 @@
-<header id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top">
+<header id="navbar" role="navigation" class="navbar container navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <?php if ($logo): ?>
