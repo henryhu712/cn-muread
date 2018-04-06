@@ -53,7 +53,7 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   $node->body['zh-hans'][0]['value'] = $content;
   $node->body['zh-hans'][0]['format'] = 'full_html';
 
-  exec('/sites/all/phantomjs/phantomjs /sites/all/phantomjs/grabpage.js "' . $url . '"');
+  exec('/var/www/cn_muread/sites/all/phantomjs/phantomjs /var/www/cn_muread/sites/all/phantomjs/grabpage.js "' . $url . '"');
 
   if ($file_url = $m_url[1][0]) {
     $file_tmp = file_get_contents($file_url);
