@@ -53,7 +53,17 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
   $node->body['zh-hans'][0]['value'] = $content;
   $node->body['zh-hans'][0]['format'] = 'full_html';
 
-  exec('/var/www/cn_muread/sites/all/phantomjs/phantomjs /var/www/cn_muread/sites/all/phantomjs/grabpage.js "' . $url . '"');
+  $count = 0;
+  $baseUrl = '/var/www/cn_muread/sites/all/phantomjs/';
+  while ($count++ < 20) {
+    $file_name = random_str(8) . '.png';
+    if (!file_exists($baseUrl . 'pageshots/' . $file_name)) {
+      exec($baseUrl . 'phantomjs '
+         . $baseUrl . 'grabpage.js '
+         . $baseUrl . 'pageshots/' . $file_name . ' "' . $url . '"');
+      break;
+    }
+  }
 
   if ($file_url = $m_url[1][0]) {
     $file_tmp = file_get_contents($file_url);
