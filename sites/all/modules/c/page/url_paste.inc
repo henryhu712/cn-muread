@@ -61,14 +61,14 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
       exec($baseUrl . 'phantomjs '
          . $baseUrl . 'grabpage.js '
          . $baseUrl . 'pageshots/' . $file_name . ' "' . $url . '"');
-      $node->field_content_image[LANGUAGE_NONE][] = array(
-          'filename' => $file_name,
-          'filemime' => file_get_mimetype($baseUrl . 'pageshots/' . $file_name),
-          'uid' => 1,
-          'uri' => $baseUrl . 'pageshots/' . $file_name,
-          'status' => 1,
-          'display' => 1,
-      );
+
+      if ($file = file_move($baseUrl.'pageshots/'.$file_name, 'public://gzh_pages/')) {
+        $file->status = FILE_STATUS_PERMANENT;
+        $file = file_save($file);
+        $file->display = 1;
+        $file->description = "";
+        $node->field_content_image[LANGUAGE_NONE][] = (array)$file;
+      }
       break;
     }
   }
