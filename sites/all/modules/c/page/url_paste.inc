@@ -62,7 +62,13 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
          . $baseUrl . 'grabpage.js '
          . $baseUrl . 'pageshots/' . $file_name . ' "' . $url . '"');
 
-      if ($file = file_move($baseUrl.'pageshots/'.$file_name, 'public://gzh_pages/')) {
+      $file0 = new stdClass;
+      $file0->uid = 1;
+      $file0->filename = $file_name;
+      $file0->uri = $baseUrl.'pageshots/'.$file_name;
+      $file0->filemime = file_get_mimetype($baseUrl.'pageshots/'.$file_name);
+      $file0->status = FILE_STATUS_PERMANENT;
+      if ($file = file_move($file0, 'public://gzh_pages/')) {
         $file->status = FILE_STATUS_PERMANENT;
         $file = file_save($file);
         $file->display = 1;
