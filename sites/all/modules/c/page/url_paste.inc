@@ -61,6 +61,14 @@ function page_create_ding_yue_hao($page, $url, $categories = '') {
       exec($baseUrl . 'phantomjs '
          . $baseUrl . 'grabpage.js '
          . $baseUrl . 'pageshots/' . $file_name . ' "' . $url . '"');
+      $node->field_content_image[LANGUAGE_NONE][] = array(
+          'filename' => $file_name,
+          'filemime' => file_get_mimetype($baseUrl . 'pageshots/' . $file_name),
+          'uid' => 1,
+          'uri' => $baseUrl . 'pageshots/' . $file_name,
+          'status' => 1,
+          'display' => 1,
+      );
       break;
     }
   }
