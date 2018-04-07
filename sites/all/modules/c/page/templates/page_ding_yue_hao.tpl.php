@@ -76,10 +76,10 @@
 </div>
 
 <?php if (!empty($page['footer'])): ?>
-  <footer class="footer <?php print $container_class; ?>">
+  <footer class="footer">
     <?php print render($page['footer']); ?>
   </footer>
 <?php endif; ?>
 
 <?php //print $ob_footer; ?>
-<?php print $nav_footer; ?>
+<?php //print $nav_footer; ?>
