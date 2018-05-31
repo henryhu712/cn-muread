@@ -14,6 +14,14 @@ function page_menu() {
 
   $rows = array();
 
+  $rows['ttee'] = array(
+    'title' => 'More',
+    'page callback' => 'page_ttee',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'dopage.inc'
+  );
+
   $rows['c/%'] = array(
     'title' => t('Articles'),
     'page callback' => 'page_c',
@@ -241,6 +249,10 @@ function page_theme($existing, $type, $theme, $path) {
     ),
     'template_paste' => array(
       'template' => 'paste',
+      'path' => $thePath,
+    ),
+    'template_ttee' => array(
+      'template' => 'ttee',
       'path' => $thePath,
     ),
   );

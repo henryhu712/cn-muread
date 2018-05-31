@@ -171,3 +171,9 @@ function page_get_term_info($term_alias = '') {
   return $info;
 }
 
+function page_ttee() {
+
+  $vars = array();
+  return theme('template_ttee', $vars);
+}
+
